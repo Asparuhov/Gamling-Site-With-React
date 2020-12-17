@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import {Route, Link, BrowserRouter} from 'react-router-dom';
 
 function App() {
+  let [balance, setBalance] = useState(0);
   return (
+    <BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <nav>
+          <ul>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/shop'>Shop</Link></li>
+            <li><Link to='/inventory'>Inventory</Link></li>
+          </ul>
+        </nav>
       </header>
-    </div>
+      <Route path='/' exact render={() => <h1>Home</h1>} />
+      <Route path='/shop' exact render={() => <h1>shop</h1>} />
+      <Route path='/inventory' exact render={() => <h1>inventory</h1>}/>
+      </div>
+    </BrowserRouter>
   );
 }
 
