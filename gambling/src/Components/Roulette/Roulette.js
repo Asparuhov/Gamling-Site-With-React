@@ -21,30 +21,29 @@ const data = [
     {option: '13', style: {backgroundColor: 'black', textColor: 'white'}},
     {option: '14', style: { backgroundColor: 'red', textColor: 'white'}}
 ]
- 
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(null);
   const [finalResult, setFinalResult] = useState({
         number: null,
         color: null
   })
-    const [balance, setBalance] = useState(3000);
-    const [placeBet, setPlaceBet] = useState({
+    const [balance, setBalance] = useState(5000);
+    
+  const [placeBet, setPlaceBet] = useState({
         totalBet: null,
         betSizeRed: null,
         betSizeBlack: null,
         betSizeGreen: null,
         betPlaced: false
-    })
-    const resetBets = {
+  })
+  const [payBets, setPayBets] = useState(false);
+  const resetBets = {
         totalBet: null,
         betSizeRed: null,
         betSizeBlack: null,
         betSizeGreen: null,
         betPlaced: false
     }
-    const [payBets, setPayBets] = useState(false);
-    
     const handleSpinClick = () => {
         const newPrizeNumber = Math.floor(Math.random() * data.length);
         setPrizeNumber(newPrizeNumber)
@@ -52,14 +51,10 @@ const data = [
         setFinalResult({...finalResult, number: data[newPrizeNumber].option, color: data[newPrizeNumber].style.backgroundColor});
         setPlaceBet({...placeBet, betPlaced: true});
     }
-    
     const updateBet = e => {
         const newValue = Number(e.target.value);
         setPlaceBet({...placeBet, totalBet: newValue});
-        console.log(placeBet);
     }
-    
-
     const colorBet = (color) => {
         if (balance > 0) {
             if (color === 'red') {
@@ -80,19 +75,15 @@ const data = [
         }
         else{alert('balance not enough')}
     }
-    
   return (
       <div className={classes.Roulette}>
-          {console.log(finalResult)}
       <Wheel
         mustStartSpinning={mustSpin}
         prizeNumber={prizeNumber}
         data={data}
- 
         onStopSpinning={() => {
             setMustSpin(false)
             setPayBets(!payBets);
-            console.log(finalResult);
             if (balance <= 0) {
                 setBalance(0);
             }
@@ -108,18 +99,16 @@ const data = [
                 }
             }
             setPlaceBet({...resetBets})
-            
         }}
           />
          <div className={classes.D1}> <p><strong>Bet amount:</strong></p><input type='number' onChange={updateBet} defaultValue={placeBet.betSize}></input></div>
           <div><strong>Balance: {balance}</strong></div>
           <button className={classes.Button2} onClick={() => colorBet('black')}>Black {placeBet.betSizeBlack ? placeBet.betSizeBlack :null}</button>
-          <button className={classes.Button1} onClick={() => colorBet('red')}>Red</button>
-          <button className={classes.Button3} onClick={() => colorBet('green')}>Green</button>
-      <button onClick={handleSpinClick} className={classes.Button} disabled={!placeBet.betSizeBlack && !placeBet.betSizeRed  && !placeBet.betSizeGreen}>SPIN</button>
+          <button className={classes.Button1} onClick={() => colorBet('red')}>Red {placeBet.betSizeRed ? placeBet.betSizeRed :null}</button>
+          <button className={classes.Button3} onClick={() => colorBet('green')}>Green {placeBet.betSizeGreen ? placeBet.betSizeGreen :null}</button>
+          <button onClick={handleSpinClick} className={classes.Button} disabled={!placeBet.betSizeBlack && !placeBet.betSizeRed && !placeBet.betSizeGreen}>SPIN</button>
      </div>
-  )
-    }
+  )}
 
 
 export default Roulette;

@@ -1,5 +1,4 @@
 import React from 'react';
-import classes from './Main.module.css';
 import Roulette from '../../Components/Roulette/Roulette';
 
 const Main = props => {

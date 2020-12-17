@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
 import {Route, Link, BrowserRouter} from 'react-router-dom';
 import Main from './Containers/MainPage/Main';
 function App() {
