@@ -3,13 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 1px;
 }
 
 
 
 
-.Roulette button{
+.Button{
   display: block;
   width: 200px;
   height: 40px;
@@ -23,19 +23,99 @@
   text-align: center;
   position: relative;
   transition: all .35s;
-  margin:40px;
+  margin:20px;
 }
 
-.Roulette button {
+.Button {
   position: relative;
   z-index: 2;
 }
 
-.Roulette button:hover {
+.Button:hover {
     border: 1px solid;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
     outline-color: rgba(255, 255, 255, 0);
     outline-offset: 15px;
     text-shadow: 1px 1px 2px #427388; 
     background-color: #43FF02 ;
+  }
+
+
+  .Button1{
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    margin-top:0%;
+    margin-bottom: 20px;
+    border: 5px solid red;
+  }
+  .Button2{
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    margin-top:10px;
+    margin-bottom: 5px;
+    border: 5px solid black;
+  }
+
+  .Button1 {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .Button1:hover {
+      border: 1px solid;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+      outline-color: rgba(255, 255, 255, 0);
+      outline-offset: 15px;
+      text-shadow: 1px 1px 2px #427388; 
+      background-color: red ;
+      color:white;
+    }
+
+.Button2 {
+  position: relative;
+  z-index: 2;
+}
+
+.Button2:hover {
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388; 
+    background-color: black ;
+    color: white;
+  }
+
+  .D1{
+      display: flex;
+      flex-direction: row;
+      margin-right: 10px;
+  }
+  .D1 input{
+      width: 100px;
+      height: 30px;
+      border-radius: 3px;
+      margin-top: 10px;
   }
