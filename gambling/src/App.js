@@ -2,9 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
 import {Route, Link, BrowserRouter} from 'react-router-dom';
-
+import Main from './Containers/MainPage/Main';
 function App() {
-  let [balance, setBalance] = useState(0);
   return (
     <BrowserRouter>
     <div className="App">
@@ -17,7 +16,7 @@ function App() {
           </ul>
         </nav>
       </header>
-      <Route path='/' exact render={() => <h1>Home</h1>} />
+      <Route path='/' exact component={Main} />
       <Route path='/shop' exact render={() => <h1>shop</h1>} />
       <Route path='/inventory' exact render={() => <h1>inventory</h1>}/>
       </div>
