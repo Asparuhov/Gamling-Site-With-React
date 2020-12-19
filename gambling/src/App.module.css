@@ -1,0 +1,39 @@
+
+.App ul{
+  margin:0;
+  padding:0;
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(206, 226, 198, 0.7);
+}
+.App li{
+  display:inline-block;
+  margin:20px;
+}
+
+.App a{
+  text-decoration: none;
+  font-size: 30px;
+  margin: 40px auto;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: #121212;
+  text-align: center;
+  letter-spacing: 5px;
+  text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+              
+}
+
+.App a:hover,
+.App a:active{
+  color: rgb(218, 157, 28);
+  background-color: rgb(98, 235, 19, 0,7);
+}
+
+.App ul:hover,
+.App ul:active{
+  color: rgb(100, 80, 36);
+  background-color: rgba(206, 226, 198, 0.5);
+}

@@ -1,14 +1,14 @@
-import './App.css';
 import {Route, Link, BrowserRouter} from 'react-router-dom';
 import Main from './Containers/MainPage/Main';
+import classes from './App.module.css'
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
+    <div className={classes.App}>
       <header>
         <nav>
           <ul>
-            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/'>Roulette</Link></li>
             <li><Link to='/shop'>Shop</Link></li>
             <li><Link to='/inventory'>Inventory</Link></li>
           </ul>

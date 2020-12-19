@@ -1,16 +1,16 @@
 import React from 'react';
-import './Chat.css';
+import classes from './Chat.module.css';
 const Chat = props => {
     return (
-        <div class="container">
-  <div class="header">
+        <div className={classes.Container}>
+  <div className={classes.header}>
     <h2>Messages</h2>
     <a href="#" title="Add Friend to this chat">+</a>
   </div>
-  <div class="chat-box">
-    <div class="enter-message">
+  <div className={classes.chatbox}>
+   <div className={classes.entermessage}>
       <input type="text" placeholder="Enter your message.."/>
-      <a href="#" class="send">Send</a>
+      <a href="#" class={classes.send}>Send</a>
     </div>
   </div>
 </div>

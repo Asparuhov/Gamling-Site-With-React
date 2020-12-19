@@ -8,24 +8,25 @@ a{
   color:#fff;
   text-decoration:none;
 }
-.container{
+.Container{
   width:500px;
   height:700px;
   display:block;
   box-shadow:0 2px 5px rgba(0,0,0,0.4);
   background-color: rgba(224, 181, 181, 0.4);
+  margin-bottom: 200px;
 }
-.header{
+.Container .header{
   padding:20px 20px 18px 20px;
   background:#5FB471;
   color:#fff;
 }
-.header h2{
+.Container .header h2{
   font-size:16px;
   line-height:15px;
   display:inline-block;
 }
-.header a{
+.Container .header a{
   display:inline-block;
   float:right;
   background:#3d8b4e;
@@ -35,31 +36,40 @@ a{
   margin-top:-5px;
   border-radius:2px;
 }
-.chat-box, .enter-message{
+.Container .chatbox, .enter-message{
   background:#ECECEC;
   padding:0 20px;
   color:#a1a1a1;
 }
-.chat-box .message-box{
+.Container .chatbox .message-box{
   padding:18px 0 10px;
   clear:both;
 }
 
-.enter-message{
+.Container .entermessage{
   padding:13px 0px;
   margin-top: 600px;
+  margin-left: 0px;
+  display:flex;
+  flex-direction: row;
+  margin-bottom:100px;
+  height:50px;
 }
-.enter-message input{
+.Container .entermessage input{
   border:none;
   padding:10px 12px;
   background:#d3d3d3;
   width:260px;
   border-radius:2px;
 }
-.enter-message a.send{
-  padding:10px 15px;
+.Container .entermessage a.send{
+  padding:15px 25px;
+  margin: 0 auto;
+  margin-left: 70px;
   background:#6294c2;
   border-radius:2px;
   float:right;
+  font-size:15px;
+  
 }
 
