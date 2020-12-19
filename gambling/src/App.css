@@ -13,10 +13,17 @@
 
 .App a{
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .App a:hover,
 .App a:active{
   color: rgb(218, 157, 28);
+  background-color: rgb(98, 235, 19, 0,7);
+}
+
+.App ul:hover,
+.App ul:active{
+  color: rgb(100, 80, 36);
+  background-color: rgb(161, 226, 135,0.5);
 }

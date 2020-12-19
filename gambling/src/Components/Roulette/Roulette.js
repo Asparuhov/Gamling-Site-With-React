@@ -2,7 +2,6 @@ import classes from './Roulette.module.css';
 import React, { useState } from 'react'
 import { Wheel } from 'react-custom-roulette'
 
-
 const Roulette = props => {
 const data = [
     {option: '0', style: {backgroundColor: 'green', textColor: 'white'}},
@@ -44,6 +43,7 @@ const data = [
         betSizeGreen: null,
         betPlaced: false
     }
+
     const handleSpinClick = () => {
         const newPrizeNumber = Math.floor(Math.random() * data.length);
         setPrizeNumber(newPrizeNumber)
@@ -102,7 +102,7 @@ const data = [
         }}
           />
          <div className={classes.D1}> <p><strong>Bet amount:</strong></p><input type='number' onChange={updateBet} defaultValue={placeBet.betSize}></input></div>
-          <div><strong>Balance: {balance}</strong></div>
+          <div style={{textShadow: 'white 0px 0px 10px'}}><strong>Balance: {balance}</strong></div>
           <button className={classes.Button2} onClick={() => colorBet('black')}>Black {placeBet.betSizeBlack ? placeBet.betSizeBlack :null}</button>
           <button className={classes.Button1} onClick={() => colorBet('red')}>Red {placeBet.betSizeRed ? placeBet.betSizeRed :null}</button>
           <button className={classes.Button3} onClick={() => colorBet('green')}>Green {placeBet.betSizeGreen ? placeBet.betSizeGreen :null}</button>

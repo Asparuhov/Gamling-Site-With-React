@@ -1,12 +1,12 @@
 import React from 'react';
 import Roulette from '../../Components/Roulette/Roulette';
-
+import Chat from '../../Components/Chat/Chat';
+import classes from './Main.module.css';
 const Main = props => {
     return (
-        <div>
-            <div>Chat</div>
-            <div><Roulette {...props} /></div>
-            <p>{props.prizeNumber}</p>
+        <div className={classes.Main}>
+            <div><Chat /></div>
+           <div> <Roulette {...props} /> </div>
         </div>
     )
 }
