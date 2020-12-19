@@ -4,8 +4,10 @@ import Main from './Containers/MainPage/Main';
 import classes from './App.module.css'
 import SideDrawer from './Components/SideDrawer/SideDrawer';
 import Backdrop from './Components/BackDrop/Backdrop';
+import Shop from './Containers/Shop/Shop';
 function App(props) {
   const [Show, setShow] = useState(false);
+  let [balance, setBalance] = useState(3500);
   return (
     <BrowserRouter>
       <div style={{height: '100%'}}>
@@ -33,7 +35,7 @@ function App(props) {
         </nav>
       </header>
       <Route path='/' exact component={Main} />
-      <Route path='/shop' exact render={() => <h1>shop</h1>} />
+      <Route path='/shop' exact component={Shop} />
       <Route path='/inventory' exact render={() => <h1>inventory</h1>}/>
         </div>
         </div>

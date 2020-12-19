@@ -1,0 +1,11 @@
+.Shop{
+    display:flex;
+    flex-direction: row;
+
+}
+
+@media (max-width: 500px){
+    .Shop{
+        flex-direction: column;
+    }
+}

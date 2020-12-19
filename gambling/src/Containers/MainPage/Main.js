@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Roulette from '../../Components/Roulette/Roulette';
 import Chat from '../../Components/Chat/Chat';
 import classes from './Main.module.css';
@@ -6,7 +6,8 @@ const Main = props => {
     return (
         <div className={classes.Main}>
             <div><Chat /></div>
-            <div> <Roulette {...props} /> </div>
+            <div> <Roulette /> </div>
+            
         </div>
     )
 }

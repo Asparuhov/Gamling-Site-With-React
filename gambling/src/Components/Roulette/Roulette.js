@@ -77,29 +77,30 @@ const data = [
     }
   return (
       <div className={classes.Roulette}>
-      <Wheel
-        mustStartSpinning={mustSpin}
-        prizeNumber={prizeNumber}
-        data={data}
-        onStopSpinning={() => {
-            setMustSpin(false)
-            setPayBets(!payBets);
-            if (balance <= 0) {
-                setBalance(0);
-            }
-            if (placeBet.betPlaced) {
-                if (placeBet.betSizeBlack && finalResult.color === 'black') {
-                    setBalance(balance + (placeBet.betSizeBlack * 2))
-                }
-                if (placeBet.betSizeRed && finalResult.color === 'red') {
-                    setBalance(balance + (placeBet.betSizeRed * 2))
-                }
-                if (placeBet.betSizeGreen && finalResult.color === 'green') {
-                    setBalance(balance + (placeBet.betSizeGreen * 14))
-                }
-            }
-            setPlaceBet({...resetBets})
+          <Wheel
+              mustStartSpinning={mustSpin}
+              prizeNumber={prizeNumber}
+              data={data}
+              onStopSpinning={() => {
+                  setMustSpin(false)
+                  setPayBets(!payBets);
+                  if (balance <= 0) {
+                      setBalance(0);
+                  }
+                  if (placeBet.betPlaced) {
+                      if (placeBet.betSizeBlack && finalResult.color === 'black') {
+                          setBalance(balance + (placeBet.betSizeBlack * 2))
+                      }
+                      if (placeBet.betSizeRed && finalResult.color === 'red') {
+                          setBalance(balance + (placeBet.betSizeRed * 2))
+                      }
+                      if (placeBet.betSizeGreen && finalResult.color === 'green') {
+                          setBalance(balance + (placeBet.betSizeGreen * 14))
+                      }
+                  }
+                  setPlaceBet({...resetBets})
               }}
+              balance={balance}
           />
          <div className={classes.D1}> <p><strong>Bet amount:</strong></p><input type='number' onChange={updateBet} defaultValue={placeBet.betSize}></input></div>
           <div style={{textShadow: 'white 0px 0px 10px'}}><strong>Balance: {balance}</strong></div>
