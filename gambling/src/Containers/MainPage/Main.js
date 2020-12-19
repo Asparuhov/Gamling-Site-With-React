@@ -7,7 +7,6 @@ const Main = props => {
         <div className={classes.Main}>
             <div><Chat /></div>
             <div> <Roulette /> </div>
-            
         </div>
     )
 }
