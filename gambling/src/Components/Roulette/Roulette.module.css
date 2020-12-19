@@ -4,10 +4,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 1px;
-    background-color: rgba(255, 255, 255, .2);
-    border-radius: 15px;
     margin-bottom: 180px;
-    border: 1px solid black;
     float:inherit;
 }
 
@@ -67,6 +64,13 @@
     margin-bottom: 5px;
     border: 5px solid red;
     background-color: rgba(238, 65, 65, 0.5);
+    border: 1px solid;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+      outline-color: rgba(255, 255, 255, 0);
+      outline-offset: 15px;
+      text-shadow: 1px 1px 2px #427388; 
+      background-color: red ;
+      color:white;
   }
   .Button2{
     display: block;
@@ -87,6 +91,13 @@
     margin-bottom: 5px;
     border: 5px solid black;
     background-color: rgba(31, 28, 28, 0.5);
+    border: 1px solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388; 
+    background-color: black ;
+    color: white;
   }
 
   .Button1 {
@@ -95,13 +106,15 @@
   }
   
   .Button1:hover {
-      border: 1px solid;
-      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-      outline-color: rgba(255, 255, 255, 0);
-      outline-offset: 15px;
-      text-shadow: 1px 1px 2px #427388; 
-      background-color: red ;
-      color:white;
+    border: 1px solid;
+    box-shadow: inset 0 0 20px  0 0 20px rgba(255, 255, 255, .2);
+    outline-color: rgba(255, 255, 255, 0);
+    outline-offset: 15px;
+    text-shadow: 1px 1px 2px #427388; 
+    background-color: rgb(243, 43, 43) ;
+    color: white;
+    width:220px;
+    font-size:22px;
     }
 
 .Button2 {
@@ -110,13 +123,15 @@
 }
 
 .Button2:hover {
-    border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-    background-color: black ;
-    color: white;
+  border: 1px solid;
+  box-shadow: inset 0 0 20px  0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+  background-color: rgb(23, 24, 23) ;
+  color: white;
+  width:220px;
+  font-size:22px;
   }
   .Button3{
     display: block;
@@ -137,6 +152,13 @@
     margin-bottom: 20px;
     border: 5px solid green;
     background-color: rgba(107, 224, 103, 0.5);
+    border: 1px solid;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+
+      outline-offset: 15px;
+      text-shadow: 1px 1px 2px #427388; 
+      background-color: green ;
+      color: white;
   }
   .Button3 {
     position: relative;
@@ -145,12 +167,14 @@
   
   .Button3:hover {
       border: 1px solid;
-      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+      box-shadow: inset 0 0 20px  0 0 20px;
       outline-color: rgba(255, 255, 255, 0);
       outline-offset: 15px;
       text-shadow: 1px 1px 2px #427388; 
-      background-color: green ;
+      background-color: rgb(75, 233, 75) ;
       color: white;
+      width:220px;
+      font-size:22px;
     }
 
   .D1{
@@ -167,4 +191,19 @@
   .D1 p{
     margin-top:10px;
     text-shadow: white 0px 0px 10px;
+}
+
+
+.Button:focus,
+.Button1:focus,
+.Button2:focus,
+.Button3:focus{
+  outline:none;
+  box-shadow:none;
+}
+@media (max-width: 1000px){
+  .Roulette{
+    margin-top: 0px;
+    margin-bottom: 250px;
+  }
 }

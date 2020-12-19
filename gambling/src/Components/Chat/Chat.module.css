@@ -73,3 +73,10 @@ a{
   
 }
 
+
+@media (max-width: 1000px){
+  .Container{
+    display:none;
+  }
+}
+
