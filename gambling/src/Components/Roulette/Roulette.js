@@ -99,7 +99,7 @@ const data = [
                 }
             }
             setPlaceBet({...resetBets})
-        }}
+              }}
           />
          <div className={classes.D1}> <p><strong>Bet amount:</strong></p><input type='number' onChange={updateBet} defaultValue={placeBet.betSize}></input></div>
           <div style={{textShadow: 'white 0px 0px 10px'}}><strong>Balance: {balance}</strong></div>

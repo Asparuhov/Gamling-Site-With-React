@@ -4,7 +4,7 @@ import Main from './Containers/MainPage/Main';
 import classes from './App.module.css'
 import SideDrawer from './Components/SideDrawer/SideDrawer';
 import Backdrop from './Components/BackDrop/Backdrop';
-function App() {
+function App(props) {
   const [Show, setShow] = useState(false);
   return (
     <BrowserRouter>
@@ -27,7 +27,8 @@ function App() {
             <ul>
                 <li><Link className={classes.Link} to='/'>Roulette</Link></li>
             <li><Link className={classes.Link} to='/shop'>Shop</Link></li>
-            <li><Link className={classes.Link} to='/inventory'>Inventory</Link></li>
+                <li><Link className={classes.Link} to='/inventory'>Inventory</Link></li>
+                <li>{props.balance}</li>
           </ul>
         </nav>
       </header>

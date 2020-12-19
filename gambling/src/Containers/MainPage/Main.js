@@ -6,7 +6,7 @@ const Main = props => {
     return (
         <div className={classes.Main}>
             <div><Chat /></div>
-           <div> <Roulette {...props} /> </div>
+            <div> <Roulette {...props} /> </div>
         </div>
     )
 }
