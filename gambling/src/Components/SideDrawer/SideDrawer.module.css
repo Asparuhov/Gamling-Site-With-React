@@ -5,10 +5,31 @@
     position:fixed;
     top:0;
     left:0;
-    width:300px;
+    width:70%;
+    max-width: 500px;
     z-index: 200;
     
 }
 .SideDrawer ul{
+    height:100%;
     list-style:none;
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+
+}
+.SideDrawer li{
+    margin:15px;
+}
+.SideDrawer a{
+    text-decoration: none;
+  font-size: 30px;
+  margin: 40px auto;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: #121212;
+  text-align: center;
+  letter-spacing: 5px;
+  text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
 }

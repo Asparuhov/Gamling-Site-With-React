@@ -1,25 +1,33 @@
 import {Route, Link, BrowserRouter} from 'react-router-dom';
+import React,{useState} from 'react';
 import Main from './Containers/MainPage/Main';
 import classes from './App.module.css'
 import SideDrawer from './Components/SideDrawer/SideDrawer';
+import Backdrop from './Components/BackDrop/Backdrop';
 function App() {
+  const [Show, setShow] = useState(false);
   return (
     <BrowserRouter>
       <div style={{height: '100%'}}>
-        <SideDrawer/>
+        {Show ? 
+          <div>
+            <SideDrawer />
+            <Backdrop clicked={()=>setShow(prev => !prev)}/>
+            </div>
+        : null}
     <div className={classes.App}>
       <header>
           <nav>
-            <button className={classes.ThreeLines}>
+            <button className={classes.ThreeLines} onClick={()=>setShow(prev => !prev)}>
               <div className={classes.Line}></div>
               <div className={classes.Line}></div>
               <div className={classes.Line}></div>
             </button>
             <div className={classes.Spacer}/>
             <ul>
-            <li><Link to='/'>Roulette</Link></li>
-            <li><Link to='/shop'>Shop</Link></li>
-            <li><Link to='/inventory'>Inventory</Link></li>
+                <li><Link className={classes.Link} to='/'>Roulette</Link></li>
+            <li><Link className={classes.Link} to='/shop'>Shop</Link></li>
+            <li><Link className={classes.Link} to='/inventory'>Inventory</Link></li>
           </ul>
         </nav>
       </header>

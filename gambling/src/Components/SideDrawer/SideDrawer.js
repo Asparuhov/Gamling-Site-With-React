@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './SideDrawer.module.css';
+
 const SideDrawer = props => (
     <nav className={classes.SideDrawer}>
         <ul>
-            <li><a>Home</a></li>
-            <li><a>Shop</a></li>
-            <li><a>Inventory</a></li>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/'>Shop</a></li>
+            <li><a href='/'>Inventory</a></li>
         </ul>
     </nav>
 );

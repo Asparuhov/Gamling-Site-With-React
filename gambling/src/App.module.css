@@ -51,7 +51,7 @@
 .App .Spacer{
   flex:1;
 }
-.App a{
+.App .Link{
   text-decoration: none;
   font-size: 30px;
   margin: 40px auto;
@@ -64,15 +64,15 @@
     0px -4px 10px rgba(255,255,255,0.3);
 }
 
-.App a:hover,
-.App a:active{
+.App .Link:hover,
+.App .Link:active{
   color: rgb(218, 157, 28);
   background-color: rgb(98, 235, 19, 0,7);
 }
 
 
 @media (max-width:700px){
- .App a{
+ .App .Link{
    display:none
  }
  .App .nav{
