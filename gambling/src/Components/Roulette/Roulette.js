@@ -1,6 +1,7 @@
 import classes from './Roulette.module.css';
 import React, { useState } from 'react'
 import { Wheel } from 'react-custom-roulette'
+import {connect} from 'react-redux';
 
 const Roulette = props => {
 const data = [
@@ -26,8 +27,6 @@ const data = [
         number: null,
         color: null
   })
-    const [balance, setBalance] = useState(5000);
-    
   const [placeBet, setPlaceBet] = useState({
         totalBet: null,
         betSizeRed: null,
@@ -56,21 +55,21 @@ const data = [
         setPlaceBet({...placeBet, totalBet: newValue});
     }
     const colorBet = (color) => {
-        if (balance > 0) {
+        if (props.balance > 0) {
             if (color === 'red') {
                 let bet = placeBet.totalBet;
                 setPlaceBet({...placeBet, betSizeRed: placeBet.betSizeRed + bet});
-                setBalance(balance - bet);
+                props.removeBalance(bet);
             }
             if (color === 'black') {
                 let bet = placeBet.totalBet;
                 setPlaceBet({...placeBet, betSizeBlack: placeBet.betSizeBlack + bet});
-                setBalance(balance - bet);
+                props.removeBalance(bet);
             }
             if (color === 'green') {
                 let bet = placeBet.totalBet;
                 setPlaceBet({...placeBet, betSizeGreen: placeBet.betSizeGreen + bet});
-                setBalance(balance - bet);
+                props.removeBalance(bet);
             }
         }
         else{alert('balance not enough')}
@@ -84,26 +83,25 @@ const data = [
               onStopSpinning={() => {
                   setMustSpin(false)
                   setPayBets(!payBets);
-                  if (balance <= 0) {
-                      setBalance(0);
+                  if (props.balance <= 0) {
+                      props.setBalance(0);
                   }
                   if (placeBet.betPlaced) {
                       if (placeBet.betSizeBlack && finalResult.color === 'black') {
-                          setBalance(balance + (placeBet.betSizeBlack * 2))
+                          props.addBalance(placeBet.betSizeBlack * 2);
                       }
                       if (placeBet.betSizeRed && finalResult.color === 'red') {
-                          setBalance(balance + (placeBet.betSizeRed * 2))
+                          props.addBalance(placeBet.betSizeRed * 2);
                       }
                       if (placeBet.betSizeGreen && finalResult.color === 'green') {
-                          setBalance(balance + (placeBet.betSizeGreen * 14))
+                          props.addBalance(placeBet.betSizeGreen * 14);
                       }
                   }
                   setPlaceBet({...resetBets})
               }}
-              balance={balance}
           />
          <div className={classes.D1}> <p><strong>Bet amount:</strong></p><input type='number' onChange={updateBet} defaultValue={placeBet.betSize}></input></div>
-          <div style={{textShadow: 'white 0px 0px 10px'}}><strong>Balance: {balance}</strong></div>
+          <div style={{textShadow: 'white 0px 0px 10px'}}><strong>Balance: {props.balance}</strong></div>
           <button className={classes.Button2} onClick={() => colorBet('black')}>Black {placeBet.betSizeBlack ? placeBet.betSizeBlack :null}</button>
           <button className={classes.Button1} onClick={() => colorBet('red')}>Red {placeBet.betSizeRed ? placeBet.betSizeRed :null}</button>
           <button className={classes.Button3} onClick={() => colorBet('green')}>Green {placeBet.betSizeGreen ? placeBet.betSizeGreen :null}</button>
@@ -111,7 +109,17 @@ const data = [
      </div>
   )}
 
-
-export default Roulette;
+const mapStateToProps = state => {
+    return {
+        balance: state.balance
+    }
+}
+const mapDispatchToState = dispatch => {
+    return {
+        addBalance: (amount) => dispatch({type: 'ADDBALANCE', amount: amount}),
+        removeBalance: (amount) => dispatch({type: 'REMOVEBALANCE', amount: amount})
+    }
+}
+export default connect(mapStateToProps, mapDispatchToState)(Roulette);
 
 
