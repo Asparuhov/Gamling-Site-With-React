@@ -84,7 +84,7 @@ const data = [
                   setMustSpin(false)
                   setPayBets(!payBets);
                   if (props.balance <= 0) {
-                      props.setBalance(0);
+                      props.removeBalance(0);
                   }
                   if (placeBet.betPlaced) {
                       if (placeBet.betSizeBlack && finalResult.color === 'black') {

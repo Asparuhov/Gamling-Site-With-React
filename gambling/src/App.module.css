@@ -89,3 +89,17 @@
      display:none;
   }
  }
+
+ .App .Balance{
+   display:flex;
+   float: right;
+   align-items: center;
+   justify-content: end;
+   font-style: italic;
+   font-weight: bolder;
+   font-size: 17px;
+   border:1px solid black;
+   border-radius: 8px;
+   margin-top: 7px;
+ }
+ 

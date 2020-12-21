@@ -5,9 +5,10 @@ import classes from './App.module.css'
 import SideDrawer from './Components/SideDrawer/SideDrawer';
 import Backdrop from './Components/BackDrop/Backdrop';
 import Shop from './Containers/Shop/Shop';
+import {connect} from 'react-redux';
+import logo from './originalLogo.png'
 function App(props) {
   const [Show, setShow] = useState(false);
-  let [balance, setBalance] = useState(3500);
   return (
     <BrowserRouter>
       <div style={{height: '100%'}}>
@@ -27,10 +28,11 @@ function App(props) {
             </button>
             <div className={classes.Spacer}/>
             <ul>
+                
                 <li><Link className={classes.Link} to='/'>Roulette</Link></li>
-            <li><Link className={classes.Link} to='/shop'>Shop</Link></li>
+                <li><Link className={classes.Link} to='/shop'>Shop</Link></li>
                 <li><Link className={classes.Link} to='/inventory'>Inventory</Link></li>
-                <li>{props.balance}</li>
+                <li className={classes.Balance}>Balance: {props.balance}</li>
           </ul>
         </nav>
       </header>
@@ -43,4 +45,10 @@ function App(props) {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    balance:state.balance
+  }
+}
+
+export default connect(mapStateToProps)(App);
