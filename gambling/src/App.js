@@ -1,15 +1,17 @@
 import {Route, Link, BrowserRouter} from 'react-router-dom';
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import Main from './Containers/MainPage/Main';
 import classes from './App.module.css'
 import SideDrawer from './Components/SideDrawer/SideDrawer';
 import Backdrop from './Components/BackDrop/Backdrop';
 import Shop from './Containers/Shop/Shop';
 import {connect} from 'react-redux';
-import logo from './originalLogo.png'
+
 function App(props) {
   const [Show, setShow] = useState(false);
+
   return (
+  
     <BrowserRouter>
       <div style={{height: '100%'}}>
         {Show ? 
@@ -32,16 +34,20 @@ function App(props) {
                 <li><Link className={classes.Link} to='/'>Roulette</Link></li>
                 <li><Link className={classes.Link} to='/shop'>Shop</Link></li>
                 <li><Link className={classes.Link} to='/inventory'>Inventory</Link></li>
+                <li><Link className={classes.Link} to='/login'>Login</Link></li>
                 <li className={classes.Balance}>Balance: {props.balance}</li>
           </ul>
         </nav>
-      </header>
-      <Route path='/' exact component={Main} />
-      <Route path='/shop' exact component={Shop} />
-      <Route path='/inventory' exact render={() => <h1>inventory</h1>}/>
+          </header>
+          
+            <Route path='/' exact component={Main} />
+            <Route path='/shop' exact component={Shop} />
+            <Route path='/inventory' exact render={() => <h1>inventory</h1>} />
         </div>
         </div>
+      
     </BrowserRouter>
+
   );
 }
 
