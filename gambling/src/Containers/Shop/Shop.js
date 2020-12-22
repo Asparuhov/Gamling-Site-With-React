@@ -4,7 +4,7 @@ import Item from './Item';
 import PaypalLogo from '../../paypal.png'
 const Shop = props => {
     const [options, setOptions] = useState({
-        value: [
+        paypal: [
             [20, 2000],
             [40, 4000],
             [60, 6000],
@@ -15,7 +15,7 @@ const Shop = props => {
     })
     return (
         <div className={classes.Shop}>
-            {options.value.map(set => {
+            {options.paypal.map(set => {
                 return (
                     <Item url={PaypalLogo}
                         value={set[0]}
@@ -29,4 +29,3 @@ const Shop = props => {
 }
 
 export default Shop;
-//<Item url={PaypalLogo} value='20$' type='PayPal' points='2000'/>
