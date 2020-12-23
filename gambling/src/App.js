@@ -7,6 +7,7 @@ import Backdrop from './Components/BackDrop/Backdrop';
 import Shop from './Containers/Shop/Shop';
 import {connect} from 'react-redux';
 import {useAuth0} from '@auth0/auth0-react';
+import Inventory from './Containers/Inventory/Inventory';
 function App(props) {
   const [Show, setShow] = useState(false);
   const {user, isAuthenticated} = useAuth0();
@@ -46,7 +47,7 @@ function App(props) {
           
             <Route path='/' exact component={Main} />
             <Route path='/shop' exact component={Shop} />
-            <Route path='/inventory' exact render={() => <h1>inventory</h1>} />
+            <Route path='/inventory' exact component={Inventory} />
         </div>
         </div>
       

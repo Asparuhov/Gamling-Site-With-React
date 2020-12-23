@@ -5,7 +5,7 @@ const Item = props => (
         <img src={props.url} alt={props.alt}/>
         <p className={classes.Price}>{props.value}$  {props.type}</p>
         <p className={classes.Points}>Buy for: {props.points}p</p>
-        <button>Checkout</button>
+        <button onClick={props.clicked}>Buy!</button>
     </div>
 );
 
