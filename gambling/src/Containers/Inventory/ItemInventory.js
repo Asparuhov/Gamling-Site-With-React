@@ -5,8 +5,8 @@ const ItemInventory = props => (
         <img src={props.url} alt={props.alt}/>
         <p className={classes.Price}>{props.value}$  {props.type}</p>
         <p className={classes.Points}>Purchased!</p>
-        <button onClick={props.clicked}>Checkout</button>
-        <button className={classes.Inventory}onClick={props.sold}>Return for: {props.points}p</button>
+        <button onClick={props.bought}>Checkout</button>
+        <button className={classes.Inventory}onClick={props.returned}>Return for: {props.points}p</button>
     </div>
 );
 

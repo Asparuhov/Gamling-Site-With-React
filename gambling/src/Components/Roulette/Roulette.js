@@ -2,8 +2,9 @@ import classes from './Roulette.module.css';
 import React, { useState } from 'react'
 import { Wheel } from 'react-custom-roulette'
 import {connect} from 'react-redux';
-
+import {useAuth0} from '@auth0/auth0-react';
 const Roulette = props => {
+    const {isAuthenticated} = useAuth0();
 const data = [
     {option: '0', style: {backgroundColor: 'green', textColor: 'white'}},
     {option: '1', style: {backgroundColor: 'black', textColor: 'white'}},
@@ -55,7 +56,7 @@ const data = [
         setPlaceBet({...placeBet, totalBet: newValue});
     }
     const colorBet = (color) => {
-        if (props.balance > 0) {
+        if (props.balance > 0 && isAuthenticated) {
             if (color === 'red') {
                 let bet = placeBet.totalBet;
                 setPlaceBet({...placeBet, betSizeRed: placeBet.betSizeRed + bet});
@@ -72,7 +73,10 @@ const data = [
                 props.removeBalance(bet);
             }
         }
-        else{alert('balance not enough')}
+        else if (isAuthenticated === false) {
+            alert('Please log in to place bets')
+        }
+        else{alert('Not enough balance')}
     }
   return (
       <div className={classes.Roulette}>
