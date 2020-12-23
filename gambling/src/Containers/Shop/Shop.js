@@ -1,7 +1,7 @@
 import classes from './Shop.module.css';
 import React, {useState} from 'react';
 import Item from './Item';
-import PaypalLogo from '../../paypal.png'
+import PaypalLogo from '../../assets/paypal.png';
 const Shop = props => {
     const [options, setOptions] = useState({
         paypal: [

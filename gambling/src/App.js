@@ -1,4 +1,4 @@
-import {Route, Link, BrowserRouter} from 'react-router-dom';
+import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
 import React,{useState, useContext} from 'react';
 import Main from './Containers/MainPage/Main';
 import classes from './App.module.css'
@@ -12,7 +12,7 @@ function App(props) {
 
   return (
   
-    <BrowserRouter>
+    <Router>
       <div style={{height: '100%'}}>
         {Show ? 
           <div>
@@ -30,7 +30,6 @@ function App(props) {
             </button>
             <div className={classes.Spacer}/>
             <ul>
-                
                 <li><Link className={classes.Link} to='/'>Roulette</Link></li>
                 <li><Link className={classes.Link} to='/shop'>Shop</Link></li>
                 <li><Link className={classes.Link} to='/inventory'>Inventory</Link></li>
@@ -46,7 +45,7 @@ function App(props) {
         </div>
         </div>
       
-    </BrowserRouter>
+    </Router>
 
   );
 }
