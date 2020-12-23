@@ -6,10 +6,13 @@ import SideDrawer from './Components/SideDrawer/SideDrawer';
 import Backdrop from './Components/BackDrop/Backdrop';
 import Shop from './Containers/Shop/Shop';
 import {connect} from 'react-redux';
-
+import {useAuth0} from '@auth0/auth0-react';
 function App(props) {
   const [Show, setShow] = useState(false);
-
+  const {user, isAuthenticated} = useAuth0();
+  const {loginWithRedirect} = useAuth0();
+  const {logout} = useAuth0();
+  console.log(user);
   return (
   
     <Router>
@@ -21,20 +24,22 @@ function App(props) {
             </div>
         : null}
     <div className={classes.App}>
-      <header>
+          <header>
+            
           <nav>
-            <button className={classes.ThreeLines} onClick={()=>setShow(prev => !prev)}>
+              <button className={classes.ThreeLines} onClick={() => setShow(prev => !prev)}>
+              <li>{isAuthenticated ? <button className={classes.Buttons} onClick={() => logout()}>Logout</button> : <button className={classes.Buttons} onClick={() => loginWithRedirect()}>Login</button>}</li>
               <div className={classes.Line}></div>
               <div className={classes.Line}></div>
               <div className={classes.Line}></div>
-            </button>
+              </button>
+              { user ? <li className={classes.Balance}>Balance: {props.balance} <p>logged as: {user.nickname}</p></li> : null}
             <div className={classes.Spacer}/>
             <ul>
                 <li><Link className={classes.Link} to='/'>Roulette</Link></li>
                 <li><Link className={classes.Link} to='/shop'>Shop</Link></li>
                 <li><Link className={classes.Link} to='/inventory'>Inventory</Link></li>
-                <li><Link className={classes.Link} to='/login'>Login</Link></li>
-                <li className={classes.Balance}>Balance: {props.balance}</li>
+                <li>{isAuthenticated ? <button className={classes.Buttons} onClick={() => logout()}>Logout</button> : <button className={classes.Buttons} onClick={() => loginWithRedirect()}>Login</button>}</li>
           </ul>
         </nav>
           </header>
