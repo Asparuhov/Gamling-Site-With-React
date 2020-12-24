@@ -103,6 +103,13 @@ const data = [
                   }
                   setPlaceBet({...resetBets})
               }}
+              radiusLineColor='white'
+              radiusLineWidth={5}
+              outerBorderColor='black'
+              outerBorderWidth={5}
+              innerBorderColor='black'
+              innerBorderWidth={25}
+              innerRadius={5}
           />
          <div className={classes.D1}> <p><strong>Bet amount:</strong></p><input type='number' onChange={updateBet} defaultValue={placeBet.betSize}></input></div>
           <div style={{textShadow: 'white 0px 0px 10px'}}><strong>Balance: {props.balance}</strong></div>

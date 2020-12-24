@@ -8,6 +8,7 @@ import Shop from './Containers/Shop/Shop';
 import {connect} from 'react-redux';
 import {useAuth0} from '@auth0/auth0-react';
 import Inventory from './Containers/Inventory/Inventory';
+import Wheel50xPage from './Containers/Wheel50x/Wheel50xPage';
 function App(props) {
   const [Show, setShow] = useState(false);
   const {user, isAuthenticated} = useAuth0();
@@ -38,13 +39,14 @@ function App(props) {
             <div className={classes.Spacer}/>
             <ul>
                 <li><Link className={classes.Link} to='/'>Roulette</Link></li>
+                <li><Link className={classes.Link} to='/roulette-50x'>Wheel50X</Link></li>
                 <li><Link className={classes.Link} to='/shop'>Shop</Link></li>
                 <li><Link className={classes.Link} to='/inventory'>Inventory</Link></li>
                 <li>{isAuthenticated ? <button className={classes.Buttons} onClick={() => logout()}>Logout</button> : <button className={classes.Buttons} onClick={() => loginWithRedirect()}>Login</button>}</li>
           </ul>
         </nav>
           </header>
-          
+            <Route path='/roulette-50x' exact component={Wheel50xPage} />
             <Route path='/' exact component={Main} />
             <Route path='/shop' exact component={Shop} />
             <Route path='/inventory' exact component={Inventory} />
