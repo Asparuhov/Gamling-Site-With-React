@@ -112,12 +112,12 @@ const Wheel50x = (props) => {
         let bet = placeBet.totalBet;
         setPlaceBet({ ...placeBet, betSizeBlue: placeBet.betSizeBlue + bet });
         props.removeBalance(bet);
-        }
-        if (color === "gold") {
-            let bet = placeBet.totalBet;
-            setPlaceBet({ ...placeBet, betSizeGold: placeBet.betSizeGold + bet });
-            props.removeBalance(bet);
-          }
+      }
+      if (color === "gold") {
+        let bet = placeBet.totalBet;
+        setPlaceBet({ ...placeBet, betSizeGold: placeBet.betSizeGold + bet });
+        props.removeBalance(bet);
+      }
     } else if (isAuthenticated === false) {
       alert("Please log in to place bets");
     } else {
@@ -126,40 +126,40 @@ const Wheel50x = (props) => {
   };
   return (
     <div className={classes.Roulette}>
-          <Wheel
-              mustStartSpinning={mustSpin}
-              prizeNumber={prizeNumber}
-              data={data}
-              onStopSpinning={() => {
-                  setMustSpin(false);
-                  setPayBets(!payBets);
-                  if (props.balance <= 0) {
-                      props.removeBalance(0);
-                  }
-                  if (placeBet.betPlaced) {
-                      if (placeBet.betSizeBlack && finalResult.color === "grey") {
-                          props.addBalance(placeBet.betSizeBlack * 2);
-                      }
-                      if (placeBet.betSizeRed && finalResult.color === "red") {
-                          props.addBalance(placeBet.betSizeRed * 3);
-                      }
-                      if (placeBet.betSizeblue && finalResult.color === "blue") {
-                          props.addBalance(placeBet.betSizeBlue * 5);
-                      }
-                      if (placeBet.betSizeGold && finalResult.color === "gold") {
-                        props.addBalance(placeBet.betSizeGold * 50);
-                    }
-                  }
-                  setPlaceBet({...resetBets});
-              }}
-              fontSize={0}
-              textDistance={80}
-              innerRadius={60}
-              outerBorderColor='black'
-              innerBorderColor='black'
-              innerBorderWidth={20}
-              outerBorderWidth={7}
-              radiusLineWidth={2}
+      <Wheel
+        mustStartSpinning={mustSpin}
+        prizeNumber={prizeNumber}
+        data={data}
+        onStopSpinning={() => {
+          setMustSpin(false);
+          setPayBets(!payBets);
+          if (props.balance <= 0) {
+            props.removeBalance(0);
+          }
+          if (placeBet.betPlaced) {
+            if (placeBet.betSizeBlack && finalResult.color === "grey") {
+              props.addBalance(placeBet.betSizeBlack * 2);
+            }
+            if (placeBet.betSizeRed && finalResult.color === "red") {
+              props.addBalance(placeBet.betSizeRed * 3);
+            }
+            if (placeBet.betSizeblue && finalResult.color === "blue") {
+              props.addBalance(placeBet.betSizeBlue * 5);
+            }
+            if (placeBet.betSizeGold && finalResult.color === "gold") {
+              props.addBalance(placeBet.betSizeGold * 50);
+            }
+          }
+          setPlaceBet({ ...resetBets });
+        }}
+        fontSize={0}
+        textDistance={80}
+        innerRadius={60}
+        outerBorderColor="black"
+        innerBorderColor="black"
+        innerBorderWidth={20}
+        outerBorderWidth={7}
+        radiusLineWidth={2}
       />
       <div className={classes.D1}>
         {" "}
@@ -193,8 +193,8 @@ const Wheel50x = (props) => {
         disabled={
           !placeBet.betSizeGrey &&
           !placeBet.betSizeRed &&
-            !placeBet.betSizeBlue &&
-            !placeBet.betSizeGold
+          !placeBet.betSizeBlue &&
+          !placeBet.betSizeGold
         }
       >
         SPIN

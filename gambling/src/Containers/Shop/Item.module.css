@@ -1,126 +1,126 @@
-.Item{
-    display:inline-flex;
-    flex-direction: column;
-    border: 2px solid black;
-    align-items: center;
-    border-radius: 3px;
-    width: 320px;
-    height:450px;
-    background-color: white;
-    margin: 20px;
-    justify-content: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    padding: 0;
+.Item {
+  display: inline-flex;
+  flex-direction: column;
+  border: 2px solid black;
+  align-items: center;
+  border-radius: 3px;
+  width: 320px;
+  height: 450px;
+  background-color: white;
+  margin: 20px;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  padding: 0;
 }
 
-.Item img{
-    width: 300px;
-    height: 150px;
+.Item img {
+  width: 300px;
+  height: 150px;
 }
 
-.Item .Price{
-    font-size:45px;
-    margin: 20px;
+.Item .Price {
+  font-size: 45px;
+  margin: 20px;
 }
 
 .Item p {
-    margin: 20px;
+  margin: 20px;
 }
 
-.Item button{
-    display: block;
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 18px;
-    font-family: sans-serif;
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-    border: 2px solid #333;
-    letter-spacing: 2px;
-    text-align: center;
-    position: relative;
-    transition: all .35s;
-    margin-top:10px;
-    margin-bottom: 5px;
-    border: 5px solid black;
-    background-color: rgba(31, 28, 28, 0.5);
-    border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-    background-color: black ;
-    color: white;
+.Item button {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border: 5px solid black;
+  background-color: rgba(31, 28, 28, 0.5);
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: black;
+  color: white;
 }
 .Item button:hover {
-    border: 1px solid;
-    box-shadow: inset 0 0 20px  0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-    background-color: rgb(23, 24, 23) ;
-    color: white;
-    width:220px;
-    font-size:22px;
-    cursor: pointer;
-    }
-.Item .Points{
-    font-size:25px;
-    font-family: 'Courier New', Courier, monospace;
+  border: 1px solid;
+  box-shadow: inset 0 0 20px 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: rgb(23, 24, 23);
+  color: white;
+  width: 220px;
+  font-size: 22px;
+  cursor: pointer;
 }
-.Item .Points p{
-    font-size:25px;
+.Item .Points {
+  font-size: 25px;
+  font-family: "Courier New", Courier, monospace;
 }
-.Item .Inventory{
-    
-        display: block;
-        width: 250px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 18px;
-        font-family: sans-serif;
-        text-decoration: none;
-        color: black;
-        font-weight: bolder;
-        border: 2px solid #333;
-        letter-spacing: 2px;
-        text-align: center;
-        position: relative;
-        transition: all .35s;
-        margin-top:10px;
-        margin-bottom: 5px;
-        border: 5px solid black;
-        background-color: rgba(31, 28, 28, 0.5);
-        border: 1px solid;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-        outline-color: rgba(255, 255, 255, 0);
-        outline-offset: 15px;
-        text-shadow: 1px 1px 2px #427388; 
-        background-color: black ;
-        color: white;
+.Item .Points p {
+  font-size: 25px;
 }
-.Item .Inventory:hover{
-    border: 1px solid;
-    box-shadow: inset 0 0 20px  0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-    background-color: rgb(23, 24, 23) ;
-    color: white;
-    widows: 270px;
-    font-size:22px;
-    cursor: pointer;
+.Item .Inventory {
+  display: block;
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border: 5px solid black;
+  background-color: rgba(31, 28, 28, 0.5);
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: black;
+  color: white;
+}
+.Item .Inventory:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: rgb(23, 24, 23);
+  color: white;
+  widows: 270px;
+  font-size: 22px;
+  cursor: pointer;
 }
 
-@media (max-width: 500px){
-    .Item{
-        width: 70%;
-        align-items: center;
-        
-    }
+@media (max-width: 500px) {
+  .Item {
+    width: 70%;
+    align-items: center;
+  }
 }

@@ -1,99 +1,93 @@
-
-*{
+* {
   list-style: none;
 }
 
 .App {
   top: 0;
-  bottom:0;
+  bottom: 0;
   width: 100%;
   background-color: rgba(206, 226, 198, 0.7);
-  height:56px;
+  height: 56px;
 }
 
-.App nav{
-  display:flex;
+.App nav {
+  display: flex;
   align-items: center;
-  height:100%;
+  height: 100%;
   padding: 0.5rem;
   flex-flow: row;
   box-sizing: border-box;
- 
-
 }
-.App ul{
-   list-style:none;
-   margin:0;
-   padding: 0;
-   display:flex;
+.App ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
-.App li{
-   padding: 0 1rem;
+.App li {
+  padding: 0 1rem;
 }
-.App .Line{
+.App .Line {
   width: 38px;
-  height:7px;
+  height: 7px;
   background-color: white;
-  
 }
-.App .ThreeLines{
+.App .ThreeLines {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width:40px;
-  height:40px;
+  width: 40px;
+  height: 40px;
   border: none;
-  border:none;
-  background:transparent;
+  border: none;
+  background: transparent;
   cursor: pointer;
   padding: 0;
   box-sizing: border-box;
 }
-.App .ThreeLines:focus{
+.App .ThreeLines:focus {
   outline: none;
 }
-.App .Spacer{
-  flex:1;
+.App .Spacer {
+  flex: 1;
 }
-.App .Link{
+.App .Link {
   text-decoration: none;
   font-size: 30px;
   margin: 40px auto;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   color: #121212;
   text-align: center;
   letter-spacing: 5px;
-  text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
-    0px -4px 10px rgba(255,255,255,0.3);
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+    0px -4px 10px rgba(255, 255, 255, 0.3);
 }
 
 .App .Link:hover,
-.App .Link:active{
+.App .Link:active {
   color: rgb(218, 157, 28);
-  background-color: rgb(98, 235, 19, 0,7);
+  background-color: rgb(98, 235, 19, 0, 7);
 }
 
+.App .Balance {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 17px;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-top: 7px;
+  flex-direction: column;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
 
-
- .App .Balance{
-   display:flex;
-   align-items: center;
-   justify-content: end;
-   font-style: italic;
-   font-weight: bolder;
-   font-size: 17px;
-   border:1px solid black;
-   border-radius: 8px;
-   margin-top: 7px;
-   flex-direction: column;
-   box-sizing: border-box;
-   white-space: nowrap;
-   text-overflow: ellipsis;
-   box-sizing: border-box;
- }
-
- .App .Buttons{
+.App .Buttons {
   display: block;
   width: 140px;
   height: 40px;
@@ -106,36 +100,35 @@
   border: 2px solid #333;
   letter-spacing: 2px;
   text-align: center;
-  transition: all .35s;
+  transition: all 0.35s;
   background-color: rgb(22, 22, 21, 0.5);
-  float:left;
- }
- .App .Buttons:hover{
-   background-color: #333;
-   width: 160px;
-   font-size: 22px;
- }
+  float: left;
+}
+.App .Buttons:hover {
+  background-color: #333;
+  width: 160px;
+  font-size: 22px;
+}
 
- @media (max-width:700px){
-  .App .Link{
-    display:none
+@media (max-width: 700px) {
+  .App .Link {
+    display: none;
   }
-  .App .nav{
-      display: block;
-      justify-content: left;
+  .App .nav {
+    display: block;
+    justify-content: left;
   }
-  .App .ThreeLines{
-    float:left;
-    margin-right:200px;
+  .App .ThreeLines {
+    float: left;
+    margin-right: 200px;
   }
-  .App .Buttons{
-    display:none
+  .App .Buttons {
+    display: none;
   }
- }
- 
- @media (min-width:700px){
-   .App .ThreeLines{
-      display:none;
-   }
+}
+
+@media (min-width: 700px) {
+  .App .ThreeLines {
+    display: none;
   }
- 
+}

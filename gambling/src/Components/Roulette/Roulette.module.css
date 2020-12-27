@@ -1,17 +1,14 @@
-.Roulette{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1px;
-    margin-bottom: 180px;
-    float:inherit;
+.Roulette {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1px;
+  margin-bottom: 180px;
+  float: inherit;
 }
 
-
-
-
-.Button{
+.Button {
   display: block;
   width: 200px;
   height: 40px;
@@ -25,8 +22,8 @@
   letter-spacing: 2px;
   text-align: center;
   position: relative;
-  transition: all .35s;
-  margin:20px;
+  transition: all 0.35s;
+  margin: 20px;
   background-color: rgba(141, 221, 88, 0.5);
 }
 
@@ -36,86 +33,88 @@
 }
 
 .Button:hover {
-    border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-    background-color: #43FF02 ;
-  }
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: #43ff02;
+}
 
+.Button1 {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+  margin-top: 0%;
+  margin-bottom: 5px;
+  border: 5px solid red;
+  background-color: rgba(238, 65, 65, 0.5);
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: red;
+  color: white;
+}
+.Button2 {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border: 5px solid black;
+  background-color: rgba(31, 28, 28, 0.5);
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: black;
+  color: white;
+}
 
-  .Button1{
-    display: block;
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 18px;
-    font-family: sans-serif;
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-    border: 2px solid #333;
-    letter-spacing: 2px;
-    text-align: center;
-    position: relative;
-    transition: all .35s;
-    margin-top:0%;
-    margin-bottom: 5px;
-    border: 5px solid red;
-    background-color: rgba(238, 65, 65, 0.5);
-    border: 1px solid;
-      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-      outline-color: rgba(255, 255, 255, 0);
-      outline-offset: 15px;
-      text-shadow: 1px 1px 2px #427388; 
-      background-color: red ;
-      color:white;
-  }
-  .Button2{
-    display: block;
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 18px;
-    font-family: sans-serif;
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-    border: 2px solid #333;
-    letter-spacing: 2px;
-    text-align: center;
-    position: relative;
-    transition: all .35s;
-    margin-top:10px;
-    margin-bottom: 5px;
-    border: 5px solid black;
-    background-color: rgba(31, 28, 28, 0.5);
-    border: 1px solid;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-    background-color: black ;
-    color: white;
-  }
+.Button1 {
+  position: relative;
+  z-index: 2;
+}
 
-  .Button1 {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .Button1:hover {
-    border: 1px solid;
-    box-shadow: inset 0 0 20px  0 0 20px rgba(255, 255, 255, .2);
-    outline-color: rgba(255, 255, 255, 0);
-    outline-offset: 15px;
-    text-shadow: 1px 1px 2px #427388; 
-    background-color: rgb(243, 43, 43) ;
-    color: white;
-    width:220px;
-    font-size:22px;
-    }
+.Button1:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: rgb(243, 43, 43);
+  color: white;
+  width: 220px;
+  font-size: 22px;
+}
 
 .Button2 {
   position: relative;
@@ -124,85 +123,84 @@
 
 .Button2:hover {
   border: 1px solid;
-  box-shadow: inset 0 0 20px  0 0 20px rgba(255, 255, 255, .2);
+  box-shadow: inset 0 0 20px 0 0 20px rgba(255, 255, 255, 0.2);
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
-  text-shadow: 1px 1px 2px #427388; 
-  background-color: rgb(23, 24, 23) ;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: rgb(23, 24, 23);
   color: white;
-  width:220px;
-  font-size:22px;
-  }
-  .Button3{
-    display: block;
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 18px;
-    font-family: sans-serif;
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-    border: 2px solid #333;
-    letter-spacing: 2px;
-    text-align: center;
-    position: relative;
-    transition: all .35s;
-    margin-top:0%;
-    margin-bottom: 20px;
-    border: 5px solid green;
-    background-color: rgba(107, 224, 103, 0.5);
-    border: 1px solid;
-      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+  width: 220px;
+  font-size: 22px;
+}
+.Button3 {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+  margin-top: 0%;
+  margin-bottom: 20px;
+  border: 5px solid green;
+  background-color: rgba(107, 224, 103, 0.5);
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
 
-      outline-offset: 15px;
-      text-shadow: 1px 1px 2px #427388; 
-      background-color: green ;
-      color: white;
-  }
-  .Button3 {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .Button3:hover {
-      border: 1px solid;
-      box-shadow: inset 0 0 20px  0 0 20px;
-      outline-color: rgba(255, 255, 255, 0);
-      outline-offset: 15px;
-      text-shadow: 1px 1px 2px #427388; 
-      background-color: rgb(75, 233, 75) ;
-      color: white;
-      width:220px;
-      font-size:22px;
-    }
-
-  .D1{
-      display: flex;
-      flex-direction: row;
-      margin-right: 10px;
-      margin-bottom: 5px;
-  }
-  .D1 input{
-      width: 100px;
-      height: 30px;
-      border-radius: 3px;
-  }
-  .D1 p{
-    margin-top:10px;
-    text-shadow: white 0px 0px 10px;
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: green;
+  color: white;
+}
+.Button3 {
+  position: relative;
+  z-index: 2;
 }
 
+.Button3:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px 0 0 20px;
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: rgb(75, 233, 75);
+  color: white;
+  width: 220px;
+  font-size: 22px;
+}
+
+.D1 {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+.D1 input {
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+}
+.D1 p {
+  margin-top: 10px;
+  text-shadow: white 0px 0px 10px;
+}
 
 .Button:focus,
 .Button1:focus,
 .Button2:focus,
-.Button3:focus{
-  outline:none;
-  box-shadow:none;
+.Button3:focus {
+  outline: none;
+  box-shadow: none;
 }
-@media (max-width: 1000px){
-  .Roulette{
+@media (max-width: 1000px) {
+  .Roulette {
     margin-top: 0px;
     margin-bottom: 250px;
   }

@@ -6,21 +6,21 @@ import PaypalLogo from "../../assets/paypal.png";
 const Inventory = (props) => {
   return (
     <ul style={{ flexWrap: "wrap", justifyContent: "center" }}>
-          { props.inventory ? 
-              props.inventory.map((set, index) => {
-                  return (
-                      <ItemInventory
-                          url={PaypalLogo}
-                          value={set.value}
-                          type="PayPal"
-                          points={set.value * 100}
-                          bought={() => props.bought(index)}
-                          returned={() => props.returned(set.value * 100, index)}
-                          key={set.value + "PayPal"}
-                      />
-                  );
-              })
-           : null}
+      {props.inventory
+        ? props.inventory.map((set, index) => {
+            return (
+              <ItemInventory
+                url={PaypalLogo}
+                value={set.value}
+                type="PayPal"
+                points={set.value * 100}
+                bought={() => props.bought(index)}
+                returned={() => props.returned(set.value * 100, index)}
+                key={set.value + "PayPal"}
+              />
+            );
+          })
+        : null}
     </ul>
   );
 };

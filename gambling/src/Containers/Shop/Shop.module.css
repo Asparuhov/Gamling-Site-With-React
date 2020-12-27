@@ -1,16 +1,15 @@
-.Shop{
-    /* display:inline-block;
+.Shop {
+  /* display:inline-block;
     flex-direction: row;
     align-items: center;
     justify-content: center; */
-    display: inline-flex;
-    zoom: 1; 
-    *display: inline;
-
+  display: inline-flex;
+  zoom: 1;
+  *display: inline;
 }
 
-@media (max-width: 500px){
-    .Shop{
-        flex-direction: column;
-    }
+@media (max-width: 500px) {
+  .Shop {
+    flex-direction: column;
+  }
 }

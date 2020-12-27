@@ -1,6 +1,6 @@
 const initialState = {
   balance: 5000,
-  inventory: []
+  inventory: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,8 +30,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         inventory: state.inventory.filter((_, index) => index !== action.index),
         balance: state.balance + action.value,
-          };
-    
+      };
+
     default:
       return state;
   }

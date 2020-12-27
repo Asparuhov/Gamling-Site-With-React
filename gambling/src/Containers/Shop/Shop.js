@@ -25,12 +25,12 @@ const Shop = (props) => {
             clicked={
               props.balance >= set[1]
                 ? () => {
-                  props.addInventory(
-                    {value: set[0], type: "PayPal"},
-                    set[1]
-                  )
-                  alert('Added! Check your inventory!')
-                }
+                    props.addInventory(
+                      { value: set[0], type: "PayPal" },
+                      set[1]
+                    );
+                    alert("Added! Check your inventory!");
+                  }
                 : () => alert("Not enough balance")
             }
             key={set[0] + "PayPal"}
