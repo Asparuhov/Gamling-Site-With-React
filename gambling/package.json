@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.2.0",
+    "@ramonak/react-progress-bar": "^2.0.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
@@ -15,6 +16,7 @@
     "mongodb": "^3.6.3",
     "nodemon": "^2.0.6",
     "prop-types": "^15.7.2",
+    "rc-progress": "^3.1.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-custom-roulette": "^1.1.5",

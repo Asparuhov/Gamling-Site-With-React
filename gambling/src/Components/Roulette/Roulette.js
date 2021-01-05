@@ -1,8 +1,10 @@
 import classes from "./Roulette.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Wheel } from "react-custom-roulette";
 import { connect } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
+import ProgressBar from "@ramonak/react-progress-bar";
+import { Line } from "rc-progress";
 const Roulette = (props) => {
   const { isAuthenticated } = useAuth0();
   const data = [
@@ -22,6 +24,8 @@ const Roulette = (props) => {
     { option: "13", style: { backgroundColor: "black", textColor: "white" } },
     { option: "14", style: { backgroundColor: "red", textColor: "white" } },
   ];
+  const [progress, setProgress] = useState(0);
+  const [progressState, setProgressState] = useState(false);
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(null);
   const [finalResult, setFinalResult] = useState({
@@ -44,6 +48,10 @@ const Roulette = (props) => {
     betPlaced: false,
   };
 
+  useEffect(() => {
+    handleSpinClick();
+  }, []);
+
   const handleSpinClick = () => {
     const newPrizeNumber = Math.floor(Math.random() * data.length);
     setPrizeNumber(newPrizeNumber);
@@ -54,6 +62,13 @@ const Roulette = (props) => {
       color: data[newPrizeNumber].style.backgroundColor,
     });
     setPlaceBet({ ...placeBet, betPlaced: true });
+    setProgressState(false);
+  };
+  const spinningCycle = () => {
+    console.log("place your bets");
+    setInterval(() => {
+      handleSpinClick();
+    }, 12000);
   };
   const updateBet = (e) => {
     const newValue = Number(e.target.value);
@@ -82,6 +97,7 @@ const Roulette = (props) => {
       alert("Not enough balance");
     }
   };
+  
   return (
     <div className={classes.Roulette}>
       <Wheel
@@ -105,7 +121,9 @@ const Roulette = (props) => {
               props.addBalance(placeBet.betSizeGreen * 14);
             }
           }
+          spinningCycle();
           setPlaceBet({ ...resetBets });
+          setProgressState(true);
         }}
         radiusLineColor="white"
         radiusLineWidth={5}
@@ -138,17 +156,7 @@ const Roulette = (props) => {
       <button className={classes.Button3} onClick={() => colorBet("green")}>
         Green {placeBet.betSizeGreen ? placeBet.betSizeGreen : null}
       </button>
-      <button
-        onClick={handleSpinClick}
-        className={classes.Button}
-        disabled={
-          !placeBet.betSizeBlack &&
-          !placeBet.betSizeRed &&
-          !placeBet.betSizeGreen
-        }
-      >
-        SPIN
-      </button>
+      <Line percent={progress} strokeWidth="4" strokeColor="#D3D3D3" />
     </div>
   );
 };
