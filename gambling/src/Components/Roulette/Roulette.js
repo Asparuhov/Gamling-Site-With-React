@@ -24,7 +24,7 @@ const Roulette = (props) => {
     { option: "13", style: { backgroundColor: "black", textColor: "white" } },
     { option: "14", style: { backgroundColor: "red", textColor: "white" } },
   ];
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(100);
   const [progressState, setProgressState] = useState(false);
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(null);
@@ -48,10 +48,14 @@ const Roulette = (props) => {
     betPlaced: false,
   };
 
-  useEffect(() => {
-    handleSpinClick();
-  }, []);
+  // Start spinning 10 seconds after component mounted
+  
+ 
 
+  useEffect(() => {
+    console.log(progress);
+  }, [progress]);
+  //Handle Spin Click
   const handleSpinClick = () => {
     const newPrizeNumber = Math.floor(Math.random() * data.length);
     setPrizeNumber(newPrizeNumber);
@@ -64,16 +68,21 @@ const Roulette = (props) => {
     setPlaceBet({ ...placeBet, betPlaced: true });
     setProgressState(false);
   };
+  //Spin Cycle
   const spinningCycle = () => {
     console.log("place your bets");
     setInterval(() => {
       handleSpinClick();
     }, 12000);
   };
+  //Update bet
   const updateBet = (e) => {
     const newValue = Number(e.target.value);
     setPlaceBet({ ...placeBet, totalBet: newValue });
   };
+  //Start the auto spinnin 10 seconds after reset
+  setTimeout(handleSpinClick, 10000);
+  //Check for color matches and get of balance
   const colorBet = (color) => {
     if (props.balance > 0 && isAuthenticated) {
       if (color === "red") {
@@ -97,6 +106,8 @@ const Roulette = (props) => {
       alert("Not enough balance");
     }
   };
+ 
+
   
   return (
     <div className={classes.Roulette}>

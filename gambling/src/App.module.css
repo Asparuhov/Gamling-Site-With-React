@@ -26,6 +26,7 @@
 }
 .App li {
   padding: 0 1rem;
+  border-right: 3px solid black;
 }
 .App .Line {
   width: 38px;
