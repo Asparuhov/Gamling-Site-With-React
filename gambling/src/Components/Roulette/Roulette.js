@@ -28,6 +28,7 @@ const Roulette = (props) => {
   const [progressState, setProgressState] = useState(false);
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(null);
+  const [timer, setTimer] = useState(10);
   const [finalResult, setFinalResult] = useState({
     number: null,
     color: null,
@@ -48,7 +49,22 @@ const Roulette = (props) => {
     betPlaced: false,
   };
 
+  useEffect(() => {
+    if (progress <= 0) {
+      setProgress(100);
+      setTimer(10);
+    }
+    let interval;
+    if (progressState) {
+      interval = setInterval(() => {
+        setProgress((prev) => prev - 1);
+      }, 96);
+    }
 
+    return () => {
+      clearInterval(interval);
+    };
+  }, [progressState, progress]);
 
   useEffect(() => {
     console.log(progress);
@@ -73,7 +89,7 @@ const Roulette = (props) => {
     setPlaceBet({ ...placeBet, totalBet: newValue });
   };
   //Start the auto spinnin 10 seconds after reset
-  setTimeout(handleSpinClick, 10000);
+  useEffect(handleSpinClick, []);
   //Check for color matches and get of balance
   const colorBet = (color) => {
     if (props.balance > 0 && isAuthenticated) {
@@ -106,6 +122,7 @@ const Roulette = (props) => {
         prizeNumber={prizeNumber}
         data={data}
         onStopSpinning={() => {
+          setProgress(100);
           setMustSpin(false);
           setPayBets(!payBets);
           if (props.balance <= 0) {
@@ -122,11 +139,9 @@ const Roulette = (props) => {
               props.addBalance(placeBet.betSizeGreen * 14);
             }
           }
-          setInterval(() => {
-            handleSpinClick();
-          }, 12000);
           setPlaceBet({ ...resetBets });
           setProgressState(true);
+          setTimeout(handleSpinClick, 10000);
         }}
         radiusLineColor="white"
         radiusLineWidth={5}
@@ -160,6 +175,9 @@ const Roulette = (props) => {
         Green {placeBet.betSizeGreen ? placeBet.betSizeGreen : null}
       </button>
       <Line percent={progress} strokeWidth="4" strokeColor="#D3D3D3" />
+      <h1 style={{ color: "white", marginTop: "5px" }}>
+        {progressState ? `Place your bets` : "Good Luck!!!"}
+      </h1>
     </div>
   );
 };
