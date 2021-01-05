@@ -48,9 +48,7 @@ const Roulette = (props) => {
     betPlaced: false,
   };
 
-  // Start spinning 10 seconds after component mounted
-  
- 
+
 
   useEffect(() => {
     console.log(progress);
@@ -69,12 +67,6 @@ const Roulette = (props) => {
     setProgressState(false);
   };
   //Spin Cycle
-  const spinningCycle = () => {
-    console.log("place your bets");
-    setInterval(() => {
-      handleSpinClick();
-    }, 12000);
-  };
   //Update bet
   const updateBet = (e) => {
     const newValue = Number(e.target.value);
@@ -106,9 +98,7 @@ const Roulette = (props) => {
       alert("Not enough balance");
     }
   };
- 
 
-  
   return (
     <div className={classes.Roulette}>
       <Wheel
@@ -132,7 +122,9 @@ const Roulette = (props) => {
               props.addBalance(placeBet.betSizeGreen * 14);
             }
           }
-          spinningCycle();
+          setInterval(() => {
+            handleSpinClick();
+          }, 12000);
           setPlaceBet({ ...resetBets });
           setProgressState(true);
         }}
