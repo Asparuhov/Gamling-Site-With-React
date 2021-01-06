@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Chat from "../../Components/Chat/Chat";
 import classes from "./Wheel50x.module.css";
@@ -10,8 +10,7 @@ const Wheel50xPage = (props) => {
         <Chat />
       </div>
       <div>
-        {" "}
-        <Wheel50x />{" "}
+        <Wheel50x />
       </div>
     </div>
   );

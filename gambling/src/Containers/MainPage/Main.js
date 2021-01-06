@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Roulette from "../../Components/Roulette/Roulette";
 import Chat from "../../Components/Chat/Chat";
 import classes from "./Main.module.css";
@@ -9,8 +9,7 @@ const Main = (props) => {
         <Chat />
       </div>
       <div>
-        {" "}
-        <Roulette />{" "}
+        <Roulette />
       </div>
     </div>
   );

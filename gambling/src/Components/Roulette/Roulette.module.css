@@ -6,7 +6,6 @@
   margin-top: 1px;
   margin-bottom: 180px;
   float: inherit;
- 
 }
 
 .Button {
@@ -205,4 +204,15 @@
     margin-top: 0px;
     margin-bottom: 250px;
   }
+}
+
+.Button1:disabled,
+.Button2:disabled,
+.Button3:disabled {
+  background-color: grey;
+  width: 200px;
+  height: 40px;
+  cursor: not-allowed;
+  pointer-events: all !important;
+  font-size: 18px;
 }
