@@ -1,10 +1,10 @@
-import classes from "./Shop.module.css";
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import Item from "./Item";
 import { connect } from "react-redux";
 import PaypalLogo from "../../assets/paypal.png";
 const Shop = (props) => {
-  const [options, setOptions] = useState({
+  const [options] = useState({
     paypal: [
       [20, 2000],
       [40, 4000],
