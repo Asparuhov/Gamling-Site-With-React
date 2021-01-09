@@ -1,5 +1,5 @@
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Main from "./Containers/MainPage/Main";
 import classes from "./App.module.css";
 import SideDrawer from "./Components/SideDrawer/SideDrawer";
@@ -14,7 +14,6 @@ function App(props) {
   const { user, isAuthenticated } = useAuth0();
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
-  console.log(user);
   return (
     <Router>
       <div style={{ height: "100%" }}>

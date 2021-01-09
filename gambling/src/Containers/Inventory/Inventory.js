@@ -1,5 +1,4 @@
-import classes from "../Shop/Shop.module.css";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ItemInventory from "./ItemInventory";
 import { connect } from "react-redux";
 import PaypalLogo from "../../assets/paypal.png";
