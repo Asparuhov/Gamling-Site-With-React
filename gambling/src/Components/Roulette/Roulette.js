@@ -47,8 +47,6 @@ const Roulette = (props) => {
       clearInterval(interval);
     };
   }, [progressState, progress]);
-
-  //Handle Spin Click
   const handleSpinClick = () => {
     const newPrizeNumber = Math.floor(Math.random() * data.length);
     setPrizeNumber(newPrizeNumber);
@@ -60,7 +58,6 @@ const Roulette = (props) => {
     setProgressState(false);
   };
   useEffect(handleSpinClick, []);
-
   let progressMessage;
   if (!isAuthenticated) {
     progressMessage = (
