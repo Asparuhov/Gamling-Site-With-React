@@ -41,10 +41,16 @@ a {
   background: #ececec;
   padding: 0 20px;
   color: #a1a1a1;
+  position: relative;
 }
 .Container .chatbox .message-box {
   padding: 18px 0 10px;
   clear: both;
+}
+
+.content{
+  position: absolute;
+  bottom:65px;
 }
 
 .Container .entermessage {
