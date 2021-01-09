@@ -63,7 +63,7 @@ a {
   width: 260px;
   border-radius: 2px;
 }
-.Container .entermessage a.send {
+.Container .entermessage .send {
   padding: 15px 25px;
   margin: 0 auto;
   margin-left: 70px;

@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Chat.module.css";
+import Message from "./Message";
 const Chat = (props) => {
+  let [messages, setMessages] = useState({
+    currentUser: "",
+    message: "",
+    date: "",
+  });
+  const addMessage = () => {};
   return (
     <div className={classes.Container}>
       <div className={classes.header}>
         <h2>Messages</h2>
-        <a href="/" title="Add Friend to this chat">
-        </a>
+        <a href="/" title="Add Friend to this chat"></a>
       </div>
       <div className={classes.chatbox}>
+        <Message
+          user="krismata"
+          message="kvo pravish ti be"
+          date="22 january"
+        />
         <div className={classes.entermessage}>
           <input type="text" placeholder="Enter your message.." />
-          <a href="/" class={classes.send}>
+          <button class={classes.send} onClick={() => addMessage()}>
             Send
-          </a>
+          </button>
         </div>
       </div>
     </div>
