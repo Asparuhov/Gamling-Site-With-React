@@ -43,6 +43,7 @@ a {
   color: #a1a1a1;
   position: relative;
 }
+
 .Container .chatbox .message-box {
   padding: 18px 0 10px;
   clear: both;
@@ -50,10 +51,12 @@ a {
 
 .content{
   position: absolute;
-  bottom:65px;
+  bottom:155px;
+  left: 8px;
+  
 }
 
-.Container .entermessage {
+.entermessage {
   padding: 13px 0px;
   margin-top: 600px;
   margin-left: 0px;
@@ -61,6 +64,7 @@ a {
   flex-direction: row;
   margin-bottom: 100px;
   height: 50px;
+  background-color: #3d8b4e;
 }
 .Container .entermessage input {
   border: none;

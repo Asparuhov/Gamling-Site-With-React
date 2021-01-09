@@ -21,29 +21,28 @@ const Chat = (props) => {
       <div className={classes.header}>
         <h2>Messages</h2>
       </div>
-      <div className={classes.chatbox}>
-        <div className={classes.content}>
-          {messages.map((message) => {
-            if (message.message) {
-              return (
-                <Message user={message.currentUser} message={message.message} />
-              );
-            }
-          })}
-        </div>
-        <div className={classes.entermessage}>
-          <input
-            type="text"
-            placeholder="Enter your message.."
-            onChange={(e) => {
-              setCurrentMessage(e.target.value);
-            }}
-            value={currentMessage}
-          />
-          <button class={classes.send} onClick={() => addMessage()}>
-            Send
-          </button>
-        </div>
+
+      <div className={classes.content}>
+        {messages.map((message) => {
+          if (message.message) {
+            return (
+              <Message user={message.currentUser} message={message.message} />
+            );
+          }
+        })}
+      </div>
+      <div className={classes.entermessage}>
+        <input
+          type="text"
+          placeholder="Enter your message.."
+          onChange={(e) => {
+            setCurrentMessage(e.target.value);
+          }}
+          value={currentMessage}
+        />
+        <button class={classes.send} onClick={() => addMessage()}>
+          Send
+        </button>
       </div>
     </div>
   );
