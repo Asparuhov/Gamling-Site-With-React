@@ -54,19 +54,19 @@ const reducer = (state = initialState, action) => {
         },
       };
     case "CONFIGUREBALANCE":
-      if (state.bets.black > 0 && action.color === "black") {
+      if (action.color === "black") {
         return {
           ...state,
           balance: state.balance + state.bets.black * 2,
         };
       }
-      if (state.bets.red > 0 && action.color === "red") {
+      if (action.color === "red") {
         return {
           ...state,
           balance: state.balance + state.bets.red * 2,
         };
       }
-      if (state.bets.green > 0 && action.color === "green") {
+      if (action.color === "green") {
         return {
           ...state,
           balance: state.balance + state.bets.green * 14,
