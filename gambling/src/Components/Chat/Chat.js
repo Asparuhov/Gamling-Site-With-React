@@ -14,7 +14,7 @@ const Chat = (props) => {
         message: currentMessage,
       },
     ]);
-    setCurrentMessage('');
+    setCurrentMessage("");
   };
   return (
     <div className={classes.Container}>
@@ -24,9 +24,11 @@ const Chat = (props) => {
       <div className={classes.chatbox}>
         <div className={classes.content}>
           {messages.map((message) => {
-            return (
-              <Message user={message.currentUser} message={message.message} />
-            );
+            if (message.message) {
+              return (
+                <Message user={message.currentUser} message={message.message} />
+              );
+            }
           })}
         </div>
         <div className={classes.entermessage}>
