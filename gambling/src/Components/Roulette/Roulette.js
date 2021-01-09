@@ -59,13 +59,8 @@ const Roulette = (props) => {
     setMustSpin(true);
     setProgressState(false);
   };
-  //Spin Cycle
-  useEffect(() => {
-    console.log(props.bets);
-  }, [props.bets]);
-  //Start the auto spinnin 10 seconds after reset
   useEffect(handleSpinClick, []);
-  //Check for color matches and get of balance
+
   let progressMessage;
   if (!isAuthenticated) {
     progressMessage = (
@@ -97,7 +92,6 @@ const Roulette = (props) => {
           setProgress(100);
           setMustSpin(false);
           props.configureBalance(finalResult.color);
-          console.log(finalResult);
           props.resetBets();
           setProgressState(true);
           setTimeout(handleSpinClick, 10000);
