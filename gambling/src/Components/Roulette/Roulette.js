@@ -28,7 +28,6 @@ const Roulette = (props) => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(null);
   const [curretInputValue, setCurrentInputValue] = useState(null);
-  const [disabled, setDisabled] = useState(true);
   const [finalResult, setFinalResult] = useState({
     number: null,
     color: null,
@@ -53,12 +52,11 @@ const Roulette = (props) => {
   const handleSpinClick = () => {
     const newPrizeNumber = Math.floor(Math.random() * data.length);
     setPrizeNumber(newPrizeNumber);
-    setMustSpin(true);
     setFinalResult({
-      ...finalResult,
       number: data[newPrizeNumber].option,
       color: data[newPrizeNumber].style.backgroundColor,
     });
+    setMustSpin(true);
     setProgressState(false);
   };
   //Spin Cycle
@@ -99,6 +97,7 @@ const Roulette = (props) => {
           setProgress(100);
           setMustSpin(false);
           props.configureBalance(finalResult.color);
+          console.log(finalResult);
           props.resetBets();
           setProgressState(true);
           setTimeout(handleSpinClick, 10000);

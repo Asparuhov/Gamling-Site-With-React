@@ -54,6 +54,7 @@ const reducer = (state = initialState, action) => {
         },
       };
     case "CONFIGUREBALANCE":
+      console.log(action.color);
       if (action.color === "black") {
         return {
           ...state,
