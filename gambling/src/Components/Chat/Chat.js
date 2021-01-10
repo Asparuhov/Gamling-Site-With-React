@@ -19,7 +19,7 @@ const Chat = (props) => {
   return (
     <div className={classes.Container}>
       <div className={classes.header}>
-        <h2>Messages</h2>
+        <h1>Messages</h1>
       </div>
 
       <div className={classes.content}>
