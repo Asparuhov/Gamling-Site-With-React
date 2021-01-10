@@ -15,6 +15,7 @@ a {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   background-color: rgba(224, 181, 181, 0.4);
   margin-bottom: 200px;
+  left:10px;
 }
 .Container .header {
   padding: 20px 20px 18px 20px;
@@ -81,6 +82,7 @@ a {
   border-radius: 2px;
   float: right;
   font-size: 15px;
+  border-radius: 8px;
 }
 
 @media (max-width: 1434px) {
