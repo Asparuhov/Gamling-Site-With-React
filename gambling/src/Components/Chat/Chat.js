@@ -3,7 +3,7 @@ import classes from "./Chat.module.css";
 import Message from "./Message";
 import { useAuth0 } from "@auth0/auth0-react";
 const Chat = (props) => {
-  const { user } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   let [currentMessage, setCurrentMessage] = useState("");
   let [messages, setMessages] = useState([]);
   const addMessage = () => {
@@ -40,7 +40,11 @@ const Chat = (props) => {
           }}
           value={currentMessage}
         />
-        <button class={classes.send} onClick={() => addMessage()}>
+        <button
+          disabled={!isAuthenticated}
+          class={classes.send}
+          onClick={() => addMessage()}
+        >
           Send
         </button>
       </div>
