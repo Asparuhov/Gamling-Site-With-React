@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import classes from "./Chat.module.css";
 import Message from "./Message";
 import { useAuth0 } from "@auth0/auth0-react";
+import { connect } from "react-redux";
 const Chat = (props) => {
-  const { user, isAuthenticated } = useAuth0();
   let [currentMessage, setCurrentMessage] = useState("");
   let [messages, setMessages] = useState([]);
   const addMessage = () => {
     setMessages((oldArray) => [
       ...oldArray,
       {
-        currentUser: user.nickname,
+        currentUser: 'Kris',
         message: currentMessage,
       },
     ]);
@@ -41,7 +41,7 @@ const Chat = (props) => {
           value={currentMessage}
         />
         <button
-          disabled={!isAuthenticated}
+          disabled={!props.isAuthenticated}
           class={classes.send}
           onClick={() => addMessage()}
         >
@@ -52,4 +52,9 @@ const Chat = (props) => {
   );
 };
 
-export default Chat;
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.isAuthenticated,
+  };
+};
+export default connect(mapStateToProps)(Chat);

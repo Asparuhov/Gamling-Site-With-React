@@ -2,10 +2,8 @@ import classes from "./Roulette.module.css";
 import React, { useState, useEffect } from "react";
 import { Wheel } from "react-custom-roulette";
 import { connect } from "react-redux";
-import { useAuth0 } from "@auth0/auth0-react";
 import { Line } from "rc-progress";
 const Roulette = (props) => {
-  const { isAuthenticated } = useAuth0();
   const data = [
     { option: "0", style: { backgroundColor: "green", textColor: "white" } },
     { option: "1", style: { backgroundColor: "black", textColor: "white" } },
@@ -59,13 +57,13 @@ const Roulette = (props) => {
   };
   useEffect(handleSpinClick, []);
   let progressMessage;
-  if (!isAuthenticated) {
+  if (!props.isAuthenticated) {
     progressMessage = (
       <h1 style={{ color: "white", marginTop: "5px", fontSize: "30px" }}>
         Sign in to play!
       </h1>
     );
-  } else if (isAuthenticated && progressState) {
+  } else if (props.isAuthenticated && progressState) {
     progressMessage = (
       <h1 style={{ color: "white", marginTop: "5px", fontSize: "20px" }}>
         Place your bets
@@ -120,19 +118,23 @@ const Roulette = (props) => {
           props.configureBets(
             "black",
             Number(curretInputValue),
-            isAuthenticated
+            props.isAuthenticated
           )
         }
-        disabled={!progressState || !isAuthenticated ? true : false}
+        disabled={!progressState || !props.isAuthenticated ? true : false}
       >
         Black {props.bets.black ? props.bets.black : null}
       </button>
       <button
         className={classes.Button1}
         onClick={() =>
-          props.configureBets("red", Number(curretInputValue), isAuthenticated)
+          props.configureBets(
+            "red",
+            Number(curretInputValue),
+            props.isAuthenticated
+          )
         }
-        disabled={!progressState || !isAuthenticated ? true : false}
+        disabled={!progressState || !props.isAuthenticated ? true : false}
       >
         Red {props.bets.red ? props.bets.red : null}
       </button>
@@ -142,10 +144,10 @@ const Roulette = (props) => {
           props.configureBets(
             "green",
             Number(curretInputValue),
-            isAuthenticated
+            props.isAuthenticated
           )
         }
-        disabled={!progressState || !isAuthenticated ? true : false}
+        disabled={!progressState || !props.isAuthenticated ? true : false}
       >
         Green {props.bets.green ? props.bets.green : null}
       </button>
@@ -159,6 +161,7 @@ const mapStateToProps = (state) => {
   return {
     balance: state.balance,
     bets: state.bets,
+    isAuthenticated: state.isAuthenticated,
   };
 };
 const mapDispatchToState = (dispatch) => {

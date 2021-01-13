@@ -1,19 +1,24 @@
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Main from "./Containers/MainPage/Main";
 import classes from "./App.module.css";
 import SideDrawer from "./Components/SideDrawer/SideDrawer";
 import Backdrop from "./Components/BackDrop/Backdrop";
 import Shop from "./Containers/Shop/Shop";
 import { connect } from "react-redux";
-import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
 import Inventory from "./Containers/Inventory/Inventory";
 import Wheel50xPage from "./Containers/Wheel50x/Wheel50xPage";
+import Login from "./Containers/Login/Login";
+import Register from "./Containers/Register/Register";
 function App(props) {
-  const [Show, setShow] = useState(false);
-  const { user, isAuthenticated } = useAuth0();
-  const { loginWithRedirect } = useAuth0();
-  const { logout } = useAuth0();
+  let [Show, setShow] = useState(false);
+  useEffect(() => {
+    axios
+      .get("user")
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <Router>
       <div style={{ height: "100%" }}>
@@ -31,29 +36,21 @@ function App(props) {
                 onClick={() => setShow((prev) => !prev)}
               >
                 <li>
-                  {isAuthenticated ? (
-                    <button
-                      className={classes.Buttons}
-                      onClick={() => logout()}
-                    >
-                      Logout
-                    </button>
+                  {props.isAuthenticated ? (
+                    <button className={classes.Buttons}>Logout</button>
                   ) : (
-                    <button
-                      className={classes.Buttons}
-                      onClick={() => loginWithRedirect()}
-                    >
+                    <Link to="/login" className={classes.Buttons}>
                       Login
-                    </button>
+                    </Link>
                   )}
                 </li>
                 <div className={classes.Line}></div>
                 <div className={classes.Line}></div>
                 <div className={classes.Line}></div>
               </button>
-              {user ? (
+              {true ? (
                 <li className={classes.Balance}>
-                  Balance: {props.balance} <p>logged as: {user.nickname}</p>
+                  Balance: {props.balance} <p>logged as: {"krismata"}</p>
                 </li>
               ) : null}
               <div className={classes.Spacer} />
@@ -79,20 +76,12 @@ function App(props) {
                   </Link>
                 </li>
                 <li>
-                  {isAuthenticated ? (
-                    <button
-                      className={classes.Buttons}
-                      onClick={() => logout()}
-                    >
-                      Logout
-                    </button>
+                  {props.isAuthenticated ? (
+                    <button className={classes.Buttons}>Logout</button>
                   ) : (
-                    <button
-                      className={classes.Buttons}
-                      onClick={() => loginWithRedirect()}
-                    >
+                    <Link to="/login" className={classes.Buttons}>
                       Login
-                    </button>
+                    </Link>
                   )}
                 </li>
               </ul>
@@ -102,6 +91,8 @@ function App(props) {
           <Route path="/" exact component={Main} />
           <Route path="/shop" exact component={Shop} />
           <Route path="/inventory" exact component={Inventory} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
         </div>
       </div>
     </Router>
@@ -111,6 +102,7 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     balance: state.balance,
+    isAuthenticated: state.isAuthenticated,
   };
 };
 

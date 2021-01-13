@@ -1,4 +1,5 @@
 const initialState = {
+  isAuthenticated: false,
   balance: 5000,
   inventory: [],
   bets: {
