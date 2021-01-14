@@ -2,6 +2,7 @@ const initialState = {
   currentUser: {},
   isAuthenticated: false,
   inventory: [],
+  balance: null,
   bets: {
     red: 0,
     black: 0,

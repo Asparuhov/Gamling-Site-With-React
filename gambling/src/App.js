@@ -22,7 +22,11 @@ function App(props) {
     axios
       .get("user")
       .then((res) => {
-        props.setCurrentUser(res.data);
+        props.setCurrentUser({
+          id: res.data._id,
+          username: res.data.username,
+          email: res.data.email,
+        });
         console.log(res.data);
       })
       .catch((err) => console.log(err));
