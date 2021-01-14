@@ -9,7 +9,8 @@ const Login = (props) => {
   });
   const login = () => {
     axios.post("login", user).then((res) => {
-      localStorage.setItem("token", res.data.accessToken);
+        localStorage.setItem("token", res.data.accessToken);
+        window.location.reload();
     });
   };
   return (

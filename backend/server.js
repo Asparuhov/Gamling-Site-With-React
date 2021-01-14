@@ -17,6 +17,10 @@ app.use(
   })
 );
 
+app.get("/user", authenticateToken, (req, res, next) => {
+  res.send(req.user);
+});
+
 app.post("/register", async (req, res) => {
   let { username, email, password } = req.body;
   const salt = await bcrypt.genSalt();
@@ -59,6 +63,32 @@ app.post("/login", (req, res) => {
       console.log("User not registered");
     }
   });
+});
+
+function authenticateToken(req, res, next) {
+  const authHeaders = req.headers["authorization"];
+  console.log(req.headers);
+  const token = authHeaders && authHeaders.split(" ")[1];
+  if (token === null) {
+    res.status(401).send("Error");
+  }
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) throw err;
+    console.log(user);
+    req.user = {
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      balance: user.balance,
+    };
+    next();
+  });
+}
+
+app.use(async (req, res) => {
+  const user = req.body;
+  await User.findOneAndUpdate({ email: user.email }, { balance: user.balance });
+  res.send(user);
 });
 mongoose
   .connect(process.env.MONGO_URL, {

@@ -1,4 +1,9 @@
-import { Route, Link, BrowserRouter as Router } from "react-router-dom";
+import {
+  Route,
+  Link,
+  BrowserRouter as Router,
+  Redirect,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Main from "./Containers/MainPage/Main";
 import classes from "./App.module.css";
@@ -16,7 +21,10 @@ function App(props) {
   useEffect(() => {
     axios
       .get("user")
-      .then((res) => console.log(res))
+      .then((res) => {
+        props.setCurrentUser(res.data);
+        console.log(res.data);
+      })
       .catch((err) => console.log(err));
   }, []);
   return (
@@ -48,9 +56,10 @@ function App(props) {
                 <div className={classes.Line}></div>
                 <div className={classes.Line}></div>
               </button>
-              {true ? (
+              {props.isAuthenticated ? (
                 <li className={classes.Balance}>
-                  Balance: {props.balance} <p>logged as: {"krismata"}</p>
+                  Balance: {props.user.balance}{" "}
+                  <p>logged as: {props.user.username}</p>
                 </li>
               ) : null}
               <div className={classes.Spacer} />
@@ -77,7 +86,15 @@ function App(props) {
                 </li>
                 <li>
                   {props.isAuthenticated ? (
-                    <button className={classes.Buttons}>Logout</button>
+                    <button
+                      className={classes.Buttons}
+                      onClick={() => {
+                        localStorage.clear();
+                        window.location.reload();
+                      }}
+                    >
+                      Logout
+                    </button>
                   ) : (
                     <Link to="/login" className={classes.Buttons}>
                       Login
@@ -91,7 +108,10 @@ function App(props) {
           <Route path="/" exact component={Main} />
           <Route path="/shop" exact component={Shop} />
           <Route path="/inventory" exact component={Inventory} />
-          <Route path="/login" exact component={Login} />
+          <Route path="/login" exact>
+            {" "}
+            {props.isAuthenticated ? <Redirect to="/" /> : <Login />}{" "}
+          </Route>
           <Route path="/register" exact component={Register} />
         </div>
       </div>
@@ -103,7 +123,13 @@ const mapStateToProps = (state) => {
   return {
     balance: state.balance,
     isAuthenticated: state.isAuthenticated,
+    user: state.currentUser,
+  };
+};
+const toActions = (dispatch) => {
+  return {
+    setCurrentUser: (user) => dispatch({ type: "SETCURRENTUSER", user: user }),
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, toActions)(App);

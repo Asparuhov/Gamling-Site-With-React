@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Wheel } from "react-custom-roulette";
 import { connect } from "react-redux";
 import { Line } from "rc-progress";
+import axios from "axios";
 const Roulette = (props) => {
   const data = [
     { option: "0", style: { backgroundColor: "green", textColor: "white" } },
@@ -76,7 +77,12 @@ const Roulette = (props) => {
       </h1>
     );
   }
-
+  useEffect(() => {
+    axios
+      .post("update", props.user)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  }, [props.user.balance]);
   return (
     <div className={classes.Roulette}>
       <Wheel
@@ -110,7 +116,7 @@ const Roulette = (props) => {
         ></input>
       </div>
       <div style={{ textShadow: "white 0px 0px 10px" }}>
-        <strong>Balance: {props.balance}</strong>
+        <strong>Balance: {props.user.balance}</strong>
       </div>
       <button
         className={classes.Button2}
@@ -159,7 +165,7 @@ const Roulette = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    balance: state.balance,
+    user: state.currentUser,
     bets: state.bets,
     isAuthenticated: state.isAuthenticated,
   };
@@ -179,6 +185,7 @@ const mapDispatchToState = (dispatch) => {
     resetBets: () => dispatch({ type: "RESETBETS" }),
     configureBalance: (color) =>
       dispatch({ type: "CONFIGUREBALANCE", color: color }),
+    setCurrentUser: (user) => dispatch({ type: "SETCURRENTUSER", user: user }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToState)(Roulette);

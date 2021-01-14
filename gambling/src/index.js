@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+import { createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./store/reducer";
 import "./index.css";
 import App from "./App";
-import axios from 'axios';
+import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:4000';
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.headers.common["Authorization"] =
+  "Bearer " + localStorage.getItem("token");
+const store = createStore(reducer, composeEnhancers());
 
 ReactDOM.render(
   <Provider store={store}>

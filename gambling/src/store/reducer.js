@@ -1,6 +1,6 @@
 const initialState = {
+  currentUser: {},
   isAuthenticated: false,
-  balance: 5000,
   inventory: [],
   bets: {
     red: 0,
@@ -31,14 +31,20 @@ const reducer = (state = initialState, action) => {
         balance: state.balance + action.value,
       };
     case "CONFIGUREBETS":
-      if (state.balance > 0 && action.amount <= state.balance) {
+      if (
+        state.currentUser.balance > 0 &&
+        action.amount <= state.currentUser.balance
+      ) {
         return {
           ...state,
           bets: {
             ...state.bets,
             [action.color]: state.bets[action.color] + action.amount,
           },
-          balance: state.balance - action.amount,
+          currentUser: {
+            ...state.currentUser,
+            balance: state.currentUser.balance - action.amount,
+          },
         };
       } else {
         alert("Not enough balance for this bet!");
@@ -58,21 +64,36 @@ const reducer = (state = initialState, action) => {
       if (action.color === "black") {
         return {
           ...state,
-          balance: state.balance + state.bets.black * 2,
+          currentUser: {
+            ...state.currentUser,
+            balance: state.currentUser.balance + state.bets.black * 2,
+          },
         };
       }
       if (action.color === "red") {
         return {
           ...state,
-          balance: state.balance + state.bets.red * 2,
+          currentUser: {
+            ...state.currentUser,
+            balance: state.currentUser.balance + state.bets.red * 2,
+          },
         };
       }
       if (action.color === "green") {
         return {
           ...state,
-          balance: state.balance + state.bets.green * 14,
+          currentUser: {
+            ...state.currentUser,
+            balance: state.currentUser.balance + state.bets.green * 14,
+          },
         };
       }
+    case "SETCURRENTUSER":
+      return {
+        ...state,
+        currentUser: action.user,
+        isAuthenticated: true,
+      };
     default:
       return state;
   }
