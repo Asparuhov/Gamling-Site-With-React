@@ -4,6 +4,7 @@ import { Wheel } from "react-custom-roulette";
 import { connect } from "react-redux";
 import { Line } from "rc-progress";
 import axios from "axios";
+
 const Roulette = (props) => {
   const data = [
     { option: "0", style: { backgroundColor: "green", textColor: "white" } },

@@ -8,7 +8,7 @@ import App from "./App";
 import axios from "axios";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "http://localhost:4000/";
 axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem("token");
 const store = createStore(reducer, composeEnhancers());

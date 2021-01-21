@@ -13,7 +13,6 @@ import Shop from "./Containers/Shop/Shop";
 import { connect } from "react-redux";
 import axios from "axios";
 import Inventory from "./Containers/Inventory/Inventory";
-import Wheel50xPage from "./Containers/Wheel50x/Wheel50xPage";
 import Login from "./Containers/Login/Login";
 import Register from "./Containers/Register/Register";
 function App(props) {
@@ -26,6 +25,7 @@ function App(props) {
           id: res.data._id,
           username: res.data.username,
           email: res.data.email,
+          balance: res.data.balance
         });
         console.log(res.data);
       })
@@ -74,11 +74,6 @@ function App(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link className={classes.Link} to="/roulette-50x">
-                    Wheel50X
-                  </Link>
-                </li>
-                <li>
                   <Link className={classes.Link} to="/shop">
                     Shop
                   </Link>
@@ -108,7 +103,6 @@ function App(props) {
               </ul>
             </nav>
           </header>
-          <Route path="/roulette-50x" exact component={Wheel50xPage} />
           <Route path="/" exact component={Main} />
           <Route path="/shop" exact component={Shop} />
           <Route path="/inventory" exact component={Inventory} />

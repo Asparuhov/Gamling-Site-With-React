@@ -11,11 +11,7 @@ mongoose.set("useCreateIndex", true);
 const app = express();
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:3001",
-  })
-);
+app.use(cors());
 
 app.get("/user", authenticateToken, (req, res, next) => {
   res.send(req.user);
