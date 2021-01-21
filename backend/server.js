@@ -9,7 +9,7 @@ mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 const app = express();
-
+//
 app.use(express.json());
 app.use(cors());
 
@@ -91,7 +91,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(4000);
+    app.listen(process.env.PORT || 4000);
     console.log("Connected to database");
   })
   .catch((err) => console.log(err));
