@@ -25,7 +25,7 @@ function App(props) {
           id: res.data._id,
           username: res.data.username,
           email: res.data.email,
-          balance: res.data.balance
+          balance: res.data.balance,
         });
         console.log(res.data);
       })

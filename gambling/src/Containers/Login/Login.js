@@ -7,30 +7,49 @@ const Login = (props) => {
     email: "",
     password: "",
   });
+  let [feedback, setFeedback] = useState("");
   const login = () => {
-    axios.post("login", user).then((res) => {
+    axios
+      .post("login", user)
+      .then((res) => {
         localStorage.setItem("token", res.data.accessToken);
-        window.location.reload();
-    });
+        if (res.data === "email") {
+          setFeedback("email");
+        } else if (res.data === "pass") {
+          setFeedback("pass");
+        } else {
+          localStorage.setItem("token", res.data.accessToken);
+          window.location.reload();
+        }
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div className={classes.Login}>
       <h1>Login</h1>
       <input
-        type="email"
+        autoComplete="off"
         placeholder="email"
+        type="email"
         onChange={(e) => setUser({ ...user, email: e.target.value })}
       />
       <input
-        type="password"
+        autoComplete="off"
         placeholder="password"
+        type="password"
         onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
+      {feedback === "email" ? (
+        <p style={{ color: "red" }}>Incorrect email</p>
+      ) : null}
+      {feedback === "pass" ? (
+        <p style={{ color: "red" }}>Incorrect password</p>
+      ) : null}
       <button onClick={login}>Login</button>
       <p>
-        Don't have an account?{" "}
+        Don't have an account?
         <Link className={classes.link} to="/register">
-          Sign up!
+          Sign up here
         </Link>
       </p>
     </div>

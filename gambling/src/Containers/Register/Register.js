@@ -1,42 +1,56 @@
 import React, { useState } from "react";
 import classes from "./Register.module.css";
+import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 const Register = (props) => {
   let [user, setUser] = useState({
     username: "",
     email: "",
     password: "",
   });
+  let [feedback, setFeedback] = useState("");
   const register = () => {
     axios
-      .post("register", user)
-      .then((res) => console.log(res))
+      .post("/register", user)
+      .then((res) => {
+        if (res.data === "success") {
+          setFeedback("success");
+          <Redirect to="/login" />;
+        } else {
+          setFeedback("bad");
+        }
+      })
       .catch((err) => console.log(err));
   };
   return (
     <div className={classes.Register}>
       <h1>Register</h1>
       <input
+        placeholder="nickname"
         type="text"
-        placeholder="username"
         onChange={(e) => setUser({ ...user, username: e.target.value })}
       />
       <input
-        type="email"
         placeholder="email"
+        type="email"
         onChange={(e) => setUser({ ...user, email: e.target.value })}
       />
       <input
-        type="password"
         placeholder="password"
+        type="password"
         onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
-      <button onClick={register}>Register</button>
+      {feedback === "success" ? <Redirect to="/login" /> : null}
+      {feedback === "bad" ? (
+        <p style={{ color: "red" }}>
+          Email already registered, try another one
+        </p>
+      ) : null}
+      <button onClick={() => register()}>Register</button>
       <p>
-        Already have an account?
+        Already registered?
         <Link className={classes.link} to="/login">
-          Login
+          Login here
         </Link>
       </p>
     </div>

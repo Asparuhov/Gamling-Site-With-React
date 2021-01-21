@@ -1,14 +1,17 @@
+*:focus {
+  outline: none !important;
+}
 .Register {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 10px solid rgb(10, 9, 7);
+  border: 2px solid rgb(10, 9, 7);
   width: 350px;
   height: 500px;
   margin: 0 auto;
   margin-top: 100px;
-  background-color: white;
+ background-color: rgba(241, 232, 232, 0.5);
 }
 
 .Register input {
