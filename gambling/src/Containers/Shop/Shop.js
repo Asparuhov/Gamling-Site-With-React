@@ -4,6 +4,7 @@ import Item from "./Item";
 import { connect } from "react-redux";
 import PaypalLogo from "../../assets/paypal.png";
 const Shop = (props) => {
+  //payment options
   const [options] = useState({
     paypal: [
       [20, 2000],
