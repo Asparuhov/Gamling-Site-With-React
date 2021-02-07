@@ -12,7 +12,7 @@ axios.defaults.baseURL = "https://roulette-react.herokuapp.com/";
 axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem("token");
 const store = createStore(reducer, composeEnhancers());
-
+//render
 ReactDOM.render(
   <Provider store={store}>
     <App />
